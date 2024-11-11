@@ -2,20 +2,17 @@ import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 import netCDF4 as nc
 # import R_tools_new_goth as tN
 from tools.get_file_list import get_file_list
-from R_tools_new_michal import vort, zlevs, colorbar_tight, gridDict, ncload, strain, Forder, linear_interp
-import scipy.stats as spstats
-
+from R_tools_new_michal import zlevs, gridDict, Forder
 
 pattern_his = 'OUTPUT/his/EMed3km_his.?????.nc'
 grd_name="INPUT/EMed3km_grd.nc"
 
 def plot_psd(letter='A', ustr='u', vstr='v'):
     path = '/atlantic3/michalshaham/EMedCroco3km_%s/' % letter
-    nums, his_files = get_file_list(path, pattern_his, digits=5)
+    nums, his_files = get_file_list(path, pattern_his, num_len=5)
     his_files=[his_files[i] for i in range(len(his_files)) if (nums[i] >= 2920 and nums[i] <= 3256)]
     # his_files=[his_files[i] for i in range(len(his_files)) if (nums[i] >= 3276 and nums[i] <= 3756)]
     print(his_files[-1])

@@ -1,7 +1,6 @@
 import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
-from R_tools_new_michal import gridDict, ncload, wrtNcfile_2d, wrtNcVars_2d, vert_integ_weights, zlevs, u2rho, v2rho, \
-    Forder
+from R_tools_new_michal import gridDict, ncload, wrtNcfile_2d, wrtNcVars_2d, Forder
 import numpy as np
 import os
 from tools.get_file_list import get_file_list

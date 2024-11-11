@@ -1,11 +1,3 @@
-import netCDF4 as nc # https://bobbyhadz.com/blog/python-note-this-error-originates-from-subprocess
-import numpy as np
-import os
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-from matplotlib import ticker
-
-import numpy.ma as ma
 from tools.get_file_list import get_file_list
 
 path_his = '/southern/michalshaham/Data/EPAC2km/'
@@ -21,7 +13,6 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-import numpy.ma as ma
 
 path = '/southern/rbarkan/data/EPAC2km/'
 temp_name = 'OUTPUT/HIS/temp_feb-apr.nc'

@@ -1,11 +1,10 @@
-import netCDF4 as nc # https://bobbyhadz.com/blog/python-note-this-error-originates-from-subprocess
-import numpy as np
-import os
+
+from intro_file import *
 
 # lons = [18.946, 26.731]
 # lats = [38.120, 33.693]
-# lons = [20.120010376, 28.291136863]
-# lats = [37.479999542, 33.158442888]
+lons = [-143, -137]
+lats = [-2, 2]
 
 def find_lon_lat(path, grd_name, lon_lat):
     (lon, lat) = lon_lat
@@ -16,3 +15,9 @@ def find_lon_lat(path, grd_name, lon_lat):
     closest_index_lon = np.argmin(np.abs(lon_array - lon))
     closest_index_lat = np.argmin(np.abs(lat_array - lat))
     return([closest_index_lon, closest_index_lat])
+
+for lon, lat in zip(lons, lats):
+    ind_lon, ind_lat = find_lon_lat(data_path, grd_name, (lon, lat))
+    print('lon index for %f: %d', (lon, ind_lon))
+    print('lat index for %f: %d', (lat, ind_lat))
+

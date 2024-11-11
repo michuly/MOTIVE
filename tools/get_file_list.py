@@ -3,14 +3,14 @@ import glob
 import re
 
 
-def get_file_list(path, pattern, nums=None, digits=6):
+def get_file_list(path, pattern, nums=None, num_len=6):
     """
     this function return a list of file paths, that fits the "pattern" given.
     if nums is provided, the list will fit the list of numbers given.
     if nums is None, the function return the list of number of the file name.
     :return: nums, file_path
     """
-    num_pattern = r'\b(\d{%d})\b' % digits
+    num_pattern = r'\b(\d{%d})\b' % num_len
     # Use glob to get a list of file names matching the pattern
     file_list = glob.glob(os.path.join(path, pattern))
 

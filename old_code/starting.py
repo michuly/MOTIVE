@@ -1,13 +1,6 @@
 import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 from R_tools_new_michal import *
-from tools.get_file_list import get_file_list
-from tools.get_ocean_time import *
-from tools.find_lon_lat import find_lon_lat
-import numpy as np
-import os
-import netCDF4 as nc
-import matplotlib.pyplot as plt
 
 depth_ind = 95  # bottom is 0 (?)
 

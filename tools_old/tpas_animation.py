@@ -1,15 +1,11 @@
 import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 import numpy as np
-import matplotlib.pyplot as plt
 import netCDF4 as nc
 from tools.get_file_list import get_file_list
-from R_tools_new_michal import vort, zlevs, colorbar_tight, gridDict, ncload, strain, Forder, linear_interp
-import scipy.stats as spstats
+from R_tools_new_michal import zlevs, gridDict, Forder
 import os
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-from matplotlib import ticker
 import numpy.ma as ma
 
 
@@ -42,9 +38,9 @@ with nc.Dataset(os.path.join(path, grd_name)) as dat_grd:
     lon = dat_grd.variables['lon_rho'][ind_equator, :]
 
 plot_depth = 20
-nums, z_his_files = get_file_list(path, pattern_his_z, digits=5)
+nums, z_his_files = get_file_list(path, pattern_his_z, num_len=5)
 z_his_files=[z_his_files[i] for i in range(len(z_his_files)) if nums[i] >= 3276]
-nums, his_files = get_file_list(path, pattern_his, digits=5)
+nums, his_files = get_file_list(path, pattern_his, num_len=5)
 his_files=[his_files[i] for i in range(len(his_files)) if nums[i] >= 3276]
 
 with nc.Dataset(z_his_files[0], 'r') as dat_his:

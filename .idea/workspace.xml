@@ -5,28 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tools/R_tools_new_goth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/R_tools_new_goth_nautilus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/avg_mld.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/build_forcing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/build_tpas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/get_file_list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/get_ocean_time.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/psd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/subsetting_netcdf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/tpas_animation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MOTIVE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MOTIVE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hello_World.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hello_World.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intro_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/intro_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcels/.ipynb_checkpoints/Glorys_parcels_0-760m-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/parcels/.ipynb_checkpoints/Glorys_parcels_0-760m-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcels/.ipynb_checkpoints/Movie_glorys-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/parcels/.ipynb_checkpoints/Movie_glorys-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcels/Glorys_parcels_0-760m.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/parcels/Glorys_parcels_0-760m.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcels/Movie_glorys.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/parcels/Movie_glorys.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcels/Parcels_execute-different tests.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/parcels/Parcels_execute-different tests.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcels/download_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/parcels/download_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old_code/create_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_code/create_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old_code/starting.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_code/starting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old_code/vertical_animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_code/vertical_animation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/R_tools_new_goth.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/R_tools_new_goth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/R_tools_new_goth_nautilus.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/R_tools_new_goth_nautilus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/avg_mld.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/avg_mld.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/build_forcing.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/build_forcing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/build_tpas.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/build_tpas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/find_lon_lat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/find_lon_lat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/get_file_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/get_file_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/get_ocean_time.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/get_ocean_time.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/psd.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/psd_1d.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/subsetting_netcdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/subsetting_netcdf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/tpas_animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools_old/tpas_animation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +48,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.find_lon_lat.executor": "Run",
+    "Python.get_ocean_time.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -75,7 +71,7 @@
       <recent name="$PROJECT_DIR$/parcels" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hello_World">
+  <component name="RunManager" selected="Python.find_lon_lat">
     <configuration name="Hello_World" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -91,6 +87,52 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hello_World.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="find_lon_lat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOTIVE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/find_lon_lat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get_ocean_time" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOTIVE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/get_ocean_time.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,6 +166,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.find_lon_lat" />
+        <item itemvalue="Python.get_ocean_time" />
         <item itemvalue="Python.Hello_World" />
         <item itemvalue="Python.intro_file" />
       </list>
@@ -148,7 +192,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731121344679</updated>
-      <workItem from="1731271897029" duration="5932000" />
+      <workItem from="1731271897029" duration="8625000" />
     </task>
     <servers />
   </component>
@@ -165,5 +209,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MOTIVE$get_ocean_time.coverage" NAME="get_ocean_time Coverage Results" MODIFIED="1731286270417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/MOTIVE$find_lon_lat.coverage" NAME="find_lon_lat Coverage Results" MODIFIED="1731286618185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
   </component>
 </project>

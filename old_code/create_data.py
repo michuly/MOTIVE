@@ -6,7 +6,7 @@ import os
 import netCDF4 as nc
 # import R_tools_new_goth as tN
 from tools.get_file_list import get_file_list
-from R_tools_new_michal import ncload, vort, wrtNcVars, Forder, DvDz, DuDz, DuDy, zlevs, gridDict
+from R_tools_new_michal import ncload, wrtNcVars, Forder, DvDz, zlevs, gridDict
 
 """
 build netcdf of any type of data

@@ -19,11 +19,12 @@ def datetime_to_seconds(target_date):
     return seconds_elapsed
 
 # Example usage:
-target_date = datetime(2016, 2, 23, 0, 0, 0)  # Replace with your desired date and time
+target_date = datetime(2016, 3, 3, 0, 0, 0)  # Replace with your desired date and time
 result = datetime_to_seconds(target_date)
 
 print("Target Date and Time:", target_date)
 print("Elapsed Seconds:", result)
+print("Elapsed hours:", result/3600)
 
 
 # Example usage:
