@@ -2,4 +2,6 @@
 paths and packages
 """
 import numpy as np
-import scipy as sp
+
+data_path = "/Users/michal/Data/MOTIVE/"
+grd_name = "Epac2km_grd_lon_lat.nc"
