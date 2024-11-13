@@ -4,7 +4,7 @@ from imports_file import *
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
-min_num, max_num = 141023, 0  # minimum and maximum dates of files to be analyzed
+min_num, max_num = 141035, 0  # minimum and maximum dates of files to be analyzed
 nums, his_files = get_file_list(data_path, pattern_his, num_len=6)
 if min_num!=0:
     his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] >= min_num)]
@@ -29,6 +29,7 @@ if time_jump>1:
 else:
     time_step = time_dim
 time_size = time_step * len(his_files)
+print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 
 
 ### save an empty psd file ###
@@ -57,6 +58,7 @@ for depth_ind, depth in enumerate(depths):
     for i in range(len(his_files)):
         his_file = his_files[i]
         print('Uploading variables: u and v from:', i, ind_time, ind_time+time_step, depth, his_file)
+        sys.stdout.flush()
         dat_his = Dataset(his_file, 'r')
         if to_slice: # Shape: time, depth, y, x?
             u[ind_time:(ind_time+time_step),:,:]=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
@@ -69,6 +71,7 @@ for depth_ind, depth in enumerate(depths):
 
     ### calculating PSD ###
     print('Calculating PSD... ')
+    sys.stdout.flush()
     u_psd = np.zeros(time_size)
     v_psd = np.zeros(time_size)
     u = np.float32(u)
@@ -82,6 +85,7 @@ for depth_ind, depth in enumerate(depths):
     # plt.plot(f[:int(8881/2)],(u2_tf_tot[:int(8881/2)]+v2_tf_tot[:int(8881/2)])/452/681)
 
     print('Saving psd to dataset...')
+    sys.stdout.flush()
     dat_dst = Dataset(dst_path, 'a')
     dat_dst.variables['psd'][depth_ind, :] = psd
     dat_dst.close()
