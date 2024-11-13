@@ -16,8 +16,8 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
 
     to_slice=True
     len_time = 12
-    time_jump=6
-    depths=[-1,-40,-175]
+    time_jump=3
+    depths=None
     min_eta_rho, max_eta_rho = 137, 360
     min_eta_v, max_eta_v = 137, 359
     min_xi_rho, max_xi_rho = 223,1334
