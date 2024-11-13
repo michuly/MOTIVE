@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/psd_1d.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/psd_1d.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +39,7 @@
     "Python.find_lon_lat.executor": "Run",
     "Python.get_file_list.executor": "Run",
     "Python.get_ocean_time.executor": "Run",
-    "Python.psd_1d.executor": "Debug",
+    "Python.psd_1d.executor": "Run",
     "Python.simulation_data.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -211,7 +212,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731121344679</updated>
       <workItem from="1731271897029" duration="16056000" />
-      <workItem from="1731449717829" duration="11381000" />
+      <workItem from="1731449717829" duration="12577000" />
     </task>
     <servers />
   </component>
