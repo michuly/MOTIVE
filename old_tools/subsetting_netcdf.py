@@ -1,6 +1,6 @@
 import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
-from R_tools_new_michal import ncdimcopy, ncvarcopy
+from tools.R_tools_new_michal import ncdimcopy, ncvarcopy
 from netCDF4 import Dataset
 import numpy as np
 

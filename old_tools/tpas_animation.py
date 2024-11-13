@@ -3,7 +3,7 @@ sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 import numpy as np
 import netCDF4 as nc
 from tools.get_file_list import get_file_list
-from R_tools_new_michal import zlevs, gridDict, Forder
+from tools.R_tools_new_michal import zlevs, gridDict, Forder
 import os
 import matplotlib.pyplot as plt
 import numpy.ma as ma

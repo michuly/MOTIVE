@@ -1,7 +1,7 @@
 import os
 import glob
 import re
-
+from simulation_data import *
 
 def get_file_list(path, pattern, nums=None, num_len=6):
     """
@@ -11,14 +11,14 @@ def get_file_list(path, pattern, nums=None, num_len=6):
     :return: nums, file_path
     """
     num_pattern = r'\b(\d{%d})\b' % num_len
-    # Use glob to get a list of file names matching the pattern
-    file_list = glob.glob(os.path.join(path, pattern))
+    # print('An example for file pattern:')
+    # print(os.path.join(path, pattern))
+    file_list = glob.glob(os.path.join(path, pattern)) # Use glob to get a list of file names matching the pattern
 
     if nums is None:
-        # Use regular expression to extract numbers from file names
         nums=[]
         for file_name in file_list:
-            match = re.search(num_pattern, file_name)
+            match = re.search(num_pattern, file_name) # Use regular expression to extract numbers from file names
             if match:
                 nums.append(int(match.group(1)))
     else:
@@ -39,7 +39,9 @@ def get_file_list(path, pattern, nums=None, num_len=6):
     return sorted(nums), sorted(file_list)
 
 
+### Tests
 # path = '/atlantic3/michalshaham/EMedCrocoC/'
 # pattern = 'OUTPUT/his/z_EMed3km_his.0*.nc'
-# nums = [2916, 2920, 2924, 2928, 2932, 2936, 2940, 2944, 2948, 2952, 2956]
-# print(get_file_list(path, pattern, nums))
+# nums = [141743]
+# print(get_file_list(data_path, pattern_his, nums))
+# print(get_file_list(data_path, pattern_his))

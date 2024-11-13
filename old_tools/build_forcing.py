@@ -1,9 +1,6 @@
 import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
-import numpy as np
-import matplotlib.pyplot as plt
 import netCDF4 as nc
-from R_tools_new_michal import vort, zlevs, colorbar_tight, gridDict, ncload, strain, Forder, linear_interp
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, filtfilt
