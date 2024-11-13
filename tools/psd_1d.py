@@ -14,9 +14,9 @@ print('Example for history file: ', his_files[-1])
 with Dataset(his_files[0], 'r') as dat_his:
     # print("What is up, what is down:")
     # print(dat_his.variables['u'][:, 0, :, :].mean(), dat_his.variables['u'][:, -1, :, :].mean())
-    # print("What are the shapes:")
-    # print(len_xi_rho, len_xi_u, len_eta_rho, len_eta_v)
-    # print(dat_his.variables['u'].shape, dat_his.variables['v'].shape)
+    print("What are the shapes:")
+    print(len_xi_rho, len_xi_u, len_eta_rho, len_eta_v)
+    print(dat_his.variables['u'].shape, dat_his.variables['v'].shape)
     # print(dat_his.variables['depth'][0])
     time_dim = dat_his.dimensions['time'].size
     if depths is None:
@@ -57,8 +57,8 @@ for depth_ind, depth in enumerate(depths):
         print('Uploading variables: u and v from:', i, ind_time, ind_time+time_step, depth, his_file)
         dat_his = Dataset(his_file, 'r')
         if to_slice: # Shape: time, depth, y, x?
-            v[ind_time:(ind_time+time_step),:,:]=dat_his.variables['v'][::time_jump,depth_ind,min_eta_v:max_eta_v, min_xi_rho:max_xi_rho]
             u[ind_time:(ind_time+time_step),:,:]=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
+            v[ind_time:(ind_time+time_step),:,:]=dat_his.variables['v'][::time_jump,depth_ind,min_eta_v:max_eta_v, min_xi_rho:max_xi_rho]
         else:
             u[ind_time:(ind_time+time_step),:,:]=dat_his.variables['u'][::time_jump,depth_ind,:,:] # might be too slow with "::time_jump"
             v[ind_time:(ind_time+time_step),:,:]=dat_his.variables['v'][::time_jump,depth_ind,:,:]
