@@ -22,10 +22,10 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     min_eta_v, max_eta_v = 137, 359
     min_xi_rho, max_xi_rho = 223,1334
     min_xi_u, max_xi_u = 223,1333
-    len_eta_rho = max_eta_rho - min_eta_rho + 1
-    len_xi_rho = max_xi_rho - min_xi_rho + 1
-    len_eta_v = max_eta_v - min_eta_v + 1
-    len_xi_u = max_xi_u - min_xi_u + 1
+    len_eta_rho = max_eta_rho - min_eta_rho
+    len_xi_rho = max_xi_rho - min_xi_rho
+    len_eta_v = max_eta_v - min_eta_v
+    len_xi_u = max_xi_u - min_xi_u
 
 elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path = "/Users/michal/Data/MOTIVE/"
@@ -36,15 +36,15 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     pattern_his_1t = "z_EPAC2km_vel_1t.*.nc"
     data_path_psd1d = "/Users/michal/Data/MOTIVE/psd_1d"
 
-    to_slice=False
+    to_slice=True
     len_time=12
-    time_jump=2
+    time_jump=1
     depths=None
     min_eta_rho,max_eta_rho=137,360
     min_eta_v,max_eta_v=137,359
     min_xi_rho,max_xi_rho=612,945
     min_xi_u,max_xi_u=612,944
-    len_eta_rho=max_eta_rho-min_eta_rho+1
-    len_xi_rho=max_xi_rho-min_xi_rho+1
-    len_eta_v=max_eta_v-min_eta_v+1
-    len_xi_u=max_xi_u-min_xi_u+1
+    len_eta_rho=max_eta_rho-min_eta_rho
+    len_xi_rho=max_xi_rho-min_xi_rho
+    len_eta_v=max_eta_v-min_eta_v
+    len_xi_u=max_xi_u-min_xi_u
