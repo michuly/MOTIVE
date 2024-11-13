@@ -4,7 +4,7 @@ from imports_file import *
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
-min_num, max_num = 141023, 142463  # minimum and maximum dates of files to be analyzed
+min_num, max_num = 141035, 142463  # minimum and maximum dates of files to be analyzed
 nums, his_files = get_file_list(data_path, pattern_his, num_len=6)
 if max_num!=0:
     his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] >= min_num and nums[i] <= max_num)]
@@ -27,7 +27,7 @@ if time_jump>1:
 else:
     time_step = time_dim
 time_size = time_step * len(his_files)
-
+print('Time parameters: ', time_dim, time_jump, time_step, time_size)
 
 ### save an empty psd file ###
 dst_path = os.path.join(data_path_psd1d, "psd1_test.nc")
