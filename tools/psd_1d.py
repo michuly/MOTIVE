@@ -27,7 +27,6 @@ if time_jump>1:
 else:
     time_step = time_dim
 time_size = time_step * len(his_files)
-print('Time parameters: ', time_dim, time_jump, time_step, time_size)
 
 
 ### save an empty psd file ###

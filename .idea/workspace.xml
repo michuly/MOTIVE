@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/psd_1d.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/psd_1d.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +40,7 @@
     "Python.psd_1d.executor": "Run",
     "Python.simulation_data.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -211,7 +210,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731121344679</updated>
       <workItem from="1731271897029" duration="16056000" />
-      <workItem from="1731449717829" duration="13480000" />
+      <workItem from="1731449717829" duration="13791000" />
     </task>
     <servers />
   </component>
@@ -234,7 +233,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/psd_1d.py</url>
-          <line>93</line>
+          <line>92</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
