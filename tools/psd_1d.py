@@ -4,7 +4,7 @@ from imports_file import *
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
-min_num, max_num = 141035, 0  # minimum and maximum dates of files to be analyzed
+min_num, max_num = 141035, 142475  # minimum and maximum dates of files to be analyzed
 nums, his_files = get_file_list(data_path, pattern_his, num_len=6)
 if min_num!=0:
     his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] >= min_num)]
