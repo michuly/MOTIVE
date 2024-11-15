@@ -8,7 +8,7 @@ from tools.get_depths import get_depths_run
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
-min_num, max_num = 141095, 141811  # minimum and maximum dates of files to be analyzed
+min_num, max_num = 141095, 141311  # minimum and maximum dates of files to be analyzed
 his_files, tot_depths, time_dim = get_concatenate_parameters(depths ,min_num, max_num)
 
 if time_jump > 1:
@@ -33,7 +33,11 @@ dat_dst.createVariable('kh', np.dtype('float32').char, ('kh',))
 dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','kh'))
 dat_dst.close()
 
-depths = get_depths_run(sys.argv) if (get_depths_run(sys.argv) is not None) else depths
+if get_depths_run(sys.argv) is not None: # depths from outside bash script
+    depths = get_depths_run(sys.argv)
+if depths is None: # if depths is not given
+    depths = tot_depths
+
 for depth in depths:
     depth_ind = np.where(tot_depths == depth)[0][0]
     u = np.zeros((time_step, len_eta_rho, len_xi_u))
