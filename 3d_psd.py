@@ -1,4 +1,4 @@
-from simulation_data import *
+from simulation_parameters import *
 
 # get files - how big and long is one depth?
 # get 3d fft from Oceanography, and realize where is 3d psd

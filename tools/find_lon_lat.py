@@ -1,5 +1,5 @@
 from imports_file import *
-from simulation_data import *
+from simulation_parameters import *
 
 # lons = [18.946, 26.731]
 # lats = [38.120, 33.693]

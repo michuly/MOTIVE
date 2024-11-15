@@ -1,7 +1,6 @@
-import os
 import glob
 import re
-from simulation_data import *
+from simulation_parameters import *
 
 def get_file_list(path, pattern, nums=None, num_len=6):
     """

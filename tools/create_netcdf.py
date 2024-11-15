@@ -1,6 +1,6 @@
 from netCDF4 import Dataset
 import numpy as np
-from simulation_data import *
+from simulation_parameters import *
 
 dst_path = ''
 dim_strs, dim_sizes, dim_values = [], [], [] # dimension names and values?

@@ -36,10 +36,10 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     pattern_his_1t = "z_EPAC2km_vel_1t.*.nc"
     data_path_psd1d = "/Users/michal/Data/MOTIVE/psd_1d"
 
-    to_slice=True
+    to_slice=False
     len_time=12
-    time_jump=1
-    depths=None
+    time_jump=3
+    depths=[-1,-40,-200]
     min_eta_rho,max_eta_rho=137,360
     min_eta_v,max_eta_v=137,359
     min_xi_rho,max_xi_rho=612,945
