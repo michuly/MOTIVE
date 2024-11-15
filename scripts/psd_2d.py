@@ -21,7 +21,7 @@ print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 kh = freq_for_fft(len_xi_u, 2e3, N2=len_eta_v, D2=2e3) # D is given in meters
 
 ### save an empty psd file ###
-dst_path = os.path.join(data_path_psd1d, "psd2d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, min_eta_v))
+dst_path = os.path.join(data_path_psd, "psd2d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, min_eta_v))
 print('Saving PSD into data file:', dst_path)
 # if not os.path.exists(dst_path):
 dat_dst = Dataset(dst_path, 'w')
@@ -83,6 +83,7 @@ for depth in depths:
     sys.stdout.flush()
     dat_dst = Dataset(dst_path, 'a')
     dat_dst.variables['psd'][depth_ind, :] = psd_h
+    dat_dst.variables['kh'][:] = kh_array
     dat_dst.close()
 
 plt.plot(kh, psd_h)

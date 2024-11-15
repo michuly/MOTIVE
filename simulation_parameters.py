@@ -11,12 +11,12 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     data_path = "/southern/rbarkan/data/EPAC2km/OUTPUT/HIS/"
     grid_path = "/southern/rbarkan/data/EPAC2km/"
     grd_name = "Epac2km_grd.nc"
-    pattern_his = "z_EPAC2km_his.*.nc"
-    data_path_psd1d = "/southern/michalshaham/Data/MOTIVE/psd"
+    pattern_his = "z_EPAC2km_his_1t.*.nc"
+    data_path_psd = "/southern/michalshaham/Data/MOTIVE/psd"
 
     to_slice=True
-    len_time = 12
-    time_jump = 6
+    len_time = 1
+    time_jump = 1
     depths = [-1, -40, -200]
     min_eta_rho, max_eta_rho = 137, 360
     min_eta_v, max_eta_v = 137, 359
@@ -34,7 +34,7 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     grd_name_sampled = "Epac2km_grd_lon_lat_sampled.nc"
     pattern_his = "z_EPAC2km_vel.*.nc"
     pattern_his_1t = "z_EPAC2km_vel_1t.*.nc"
-    data_path_psd1d = "/Users/michal/Data/MOTIVE/psd_1d"
+    data_path_psd = "/Users/michal/Data/MOTIVE/psd"
 
     to_slice=False
     len_time=12

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="">
+    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="psd 2d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/psd_1d.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_1d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/psd_2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_2d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_parameters.py" afterDir="false" />
     </list>
@@ -212,8 +214,17 @@
       <option name="presentableId" value="Default" />
       <updated>1731121344679</updated>
       <workItem from="1731271897029" duration="16056000" />
-      <workItem from="1731449717829" duration="30298000" />
+      <workItem from="1731449717829" duration="32395000" />
     </task>
+    <task id="LOCAL-00001" summary="psd 2d">
+      <option name="closed" value="true" />
+      <created>1731657572365</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731657572365</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +240,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="psd 2d" />
+    <option name="LAST_COMMIT_MESSAGE" value="psd 2d" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
