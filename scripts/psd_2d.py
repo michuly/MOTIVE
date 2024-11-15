@@ -1,6 +1,3 @@
-import sys
-
-import numpy as np
 from simulation_parameters import *
 from imports_file import *
 from tools.get_depths import get_depths_run
@@ -86,12 +83,13 @@ for depth in depths:
     dat_dst.variables['kh'][:] = kh_array
     dat_dst.close()
 
-plt.plot(kh, psd_h)
-plt.xscale('log')
-plt.yscale('log')
-plt.xlabel('kh 1/m')
-plt.ylabel('PSD')
-plt.title('Surface Horizontal PSD')
-plt.grid(True)
-# plt.legend(['All freq forcing', 'Low freq forcing', '48$hr^{-1}$, 24$hr^{-1}$, $f_{cor}$, 12$hr^{-1}$'])
-plt.show()
+if socket.gethostname()=='Michals-MacBook-Pro.local':
+    plt.plot(kh, psd_h)
+    plt.xscale('log')
+    plt.yscale('log')
+    plt.xlabel('kh 1/m')
+    plt.ylabel('PSD')
+    plt.title('Surface Horizontal PSD')
+    plt.grid(True)
+    # plt.legend(['All freq forcing', 'Low freq forcing', '48$hr^{-1}$, 24$hr^{-1}$, $f_{cor}$, 12$hr^{-1}$'])
+    plt.show()
