@@ -11,12 +11,12 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     data_path = "/southern/rbarkan/data/EPAC2km/OUTPUT/HIS/"
     grid_path = "/southern/rbarkan/data/EPAC2km/"
     grd_name = "Epac2km_grd.nc"
-    pattern_his = "z_EPAC2km_his_1t.*.nc"
+    pattern_his = "z_EPAC2km_his.*.nc"
     data_path_psd = "/southern/michalshaham/Data/MOTIVE/psd"
 
     to_slice=True
-    len_time = 1
-    time_jump = 1
+    len_time = 12
+    time_jump = 6
     depths = [-1, -40, -200]
     min_eta_rho, max_eta_rho = 137, 360
     min_eta_v, max_eta_v = 137, 359
