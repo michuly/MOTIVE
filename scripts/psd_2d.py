@@ -40,8 +40,6 @@ if depths is None: # if depths is not given
 
 for depth in depths:
     depth_ind = np.where(tot_depths == depth)[0][0]
-    u = np.zeros((time_step, len_eta_rho, len_xi_u))
-    v = np.zeros((time_step, len_eta_v, len_xi_rho))
     ### u/v to rho or rho to u/v
     ind_time = 0
     for i in range(len(his_files)):
@@ -52,11 +50,11 @@ for depth in depths:
         dat_his = Dataset(his_file, 'r')
         try:
             if to_slice: # Shape: time, depth, y, x?e
-                u[:]=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
-                v[:]=dat_his.variables['v'][::time_jump,depth_ind,min_eta_v:max_eta_v, min_xi_rho:max_xi_rho]
+                u=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
+                v=dat_his.variables['v'][::time_jump,depth_ind,min_eta_v:max_eta_v, min_xi_rho:max_xi_rho]
             else:
-                u[:]=dat_his.variables['u'][::time_jump,depth_ind,:,:] # might be too slow with "::time_jump"
-                v[:]=dat_his.variables['v'][::time_jump,depth_ind,:,:]
+                u=dat_his.variables['u'][::time_jump,depth_ind,:,:] # might be too slow with "::time_jump"
+                v=dat_his.variables['v'][::time_jump,depth_ind,:,:]
             print('Changing coordinates from rho to u/v...')
             u = 0.5 * (u[:, 1:, :] + u[:, -1:, :])
             v = 0.5 * (v[:, :, 1:] + v[:, :, -1:])
