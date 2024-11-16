@@ -1,6 +1,5 @@
 from simulation_parameters import *
 from imports_file import *
-from tools.get_depths import get_depths_run
 
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
@@ -29,8 +28,8 @@ dat_dst.createVariable('kh', np.dtype('float32').char, ('kh',))
 dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','kh'))
 dat_dst.close()
 
-if get_depths_run(sys.argv) is not None: # depths from outside bash script
-    depths = get_depths_run(sys.argv)
+if get_depths_run(sys.argv, tot_depths) is not None: # depths from outside bash script
+    depths = get_depths_run(sys.argv, tot_depths)
 if depths is None: # if depths is not given
     depths = tot_depths
 
