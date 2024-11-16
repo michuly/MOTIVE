@@ -7,7 +7,7 @@ import numpy as np
 def get_concatenate_parameters(depths=None ,min_num=0, max_num=0):
     ### get history file names ###
     nums, his_files = get_file_list(data_path, pattern_his, num_len=6)
-    print('Maximum and Minimum time pf file found: ', np.min(nums), np.max(nums))
+    print('Maximum and Minimum time of file found: ', np.min(nums), np.max(nums))
     if min_num != 0:
         his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] >= min_num)]
     if max_num != 0:

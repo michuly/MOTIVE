@@ -14,7 +14,8 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     pattern_his = "z_EPAC2km_his.*.nc"
     data_path_psd = "/southern/michalshaham/Data/MOTIVE/psd"
     data_path_his = "/southern/michalshaham/Data/MOTIVE/his"
-    min_num, max_num = 141095, 143111  # minimum and maximum dates of files to be analyzed
+    min_num, max_num = 141095, 143111
+# minimum and maximum dates of files to be analyzed
 
     to_slice=True
     len_time = 12
@@ -58,3 +59,13 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
         len_xi_rho = max_xi_rho - min_xi_rho
         len_eta_v = max_eta_v - min_eta_v
         len_xi_u = max_xi_u - min_xi_u
+
+
+tot_depths = [-0, -1, -2, -4, -7, -10, -15, -20, -25, -30, -40, -50, -60, -70,
+-80, -90, -100, -110, -120, -130, -140, -150, -175, -200, -225, -250,
+-275, -300, -325, -350, -375, -400, -425, -450, -475, -500, -550, -600,
+-650, -700, -750, -800, -875, -950, -1025, -1100, -1175, -1250, -1325,
+-1400, -1475, -1550, -1625, -1700, -1775, -1850, -1925, -2000, -2075,
+-2150, -2225, -2300, -2375, -2450, -2525, -2600, -2675, -2750, -2825,
+-2900, -2975, -3050, -3125, -3200, -3275, -3350, -3425, -3500, -3600,
+-3700, -3800, -3900, -4000, -4100, -4200, -4300, -4400, -4500]
