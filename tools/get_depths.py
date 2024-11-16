@@ -8,7 +8,7 @@ def get_depths_run(argv, tot_depths=None):
         min_depth = int(argv[2])
         print('Check max %d is higher than min %d' % (max_depth, min_depth))
         if tot_depths is not None:
-            depths = tot_depths[np.where(tot_depths>min_depth) and np.where(tot_depths<=max_depth)]
+            depths = tot_depths[(tot_depths>min_depth) and (tot_depths<=max_depth)]
         else:
             depths = np.arange(min_depth, max_depth+1)
         print('START RUNNING: DEPTHS ', depths)
