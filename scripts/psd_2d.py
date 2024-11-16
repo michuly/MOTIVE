@@ -90,3 +90,5 @@ if socket.gethostname()=='Michals-MacBook-Pro.local':
     plt.grid(True)
     # plt.legend(['All freq forcing', 'Low freq forcing', '48$hr^{-1}$, 24$hr^{-1}$, $f_{cor}$, 12$hr^{-1}$'])
     plt.show()
+
+print('DONE: saved psd to data file ', dst_path)

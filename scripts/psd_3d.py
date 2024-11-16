@@ -4,7 +4,7 @@ from tools.get_depths import get_depths_run
 
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
-### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
+### get history file names
 his_files, tot_depths, time_dim = get_concatenate_parameters(depths ,min_num, max_num)
 
 if time_jump > 1:
@@ -91,3 +91,5 @@ for depth in depths:
     dat_dst.variables['kh'][:] = kh_array
     dat_dst.variables['freq'][:] = freq
     dat_dst.close()
+
+print('DONE: saved psd to data file ', dst_path)

@@ -93,4 +93,6 @@ plt.axvline(f_cor,0,1e8, linestyle='--', c='k')
 # plt.legend(['All freq forcing', 'Low freq forcing', '48$hr^{-1}$, 24$hr^{-1}$, $f_{cor}$, 12$hr^{-1}$'])
 plt.show()
 
+print('DONE: saved psd to data file ', dst_path)
+
 
