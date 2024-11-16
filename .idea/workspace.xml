@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="psd 2d">
+      <change afterPath="$PROJECT_DIR$/scripts/psd_3d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/psd_1d.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_1d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/psd_2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_2d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_parameters.py" afterDir="false" />
     </list>
@@ -42,7 +45,9 @@
     "Python.get_ocean_time.executor": "Run",
     "Python.psd_1d.executor": "Run",
     "Python.psd_2d.executor": "Run",
+    "Python.psd_3d.executor": "Run",
     "Python.simulation_data.executor": "Run",
+    "Python.simulation_parameters.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE",
@@ -65,7 +70,7 @@
       <recent name="$PROJECT_DIR$/parcels" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.psd_2d">
+  <component name="RunManager" selected="Python.psd_3d">
     <configuration name="concatenate_files" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -81,29 +86,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/concatenate_files.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="get_ocean_time" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MOTIVE" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/get_ocean_time.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,6 +134,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="psd_3d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOTIVE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/psd_3d.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="simulation_parameters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -177,18 +182,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.concatenate_files" />
+      <item itemvalue="Python.psd_3d" />
       <item itemvalue="Python.psd_2d" />
       <item itemvalue="Python.simulation_parameters" />
-      <item itemvalue="Python.get_ocean_time" />
       <item itemvalue="Python.psd_1d" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.psd_3d" />
+        <item itemvalue="Python.simulation_parameters" />
         <item itemvalue="Python.psd_2d" />
         <item itemvalue="Python.psd_1d" />
         <item itemvalue="Python.concatenate_files" />
-        <item itemvalue="Python.get_ocean_time" />
-        <item itemvalue="Python.simulation_parameters" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +217,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731121344679</updated>
       <workItem from="1731271897029" duration="16056000" />
-      <workItem from="1731449717829" duration="32775000" />
+      <workItem from="1731449717829" duration="35734000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -238,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731664216454</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="psd 2d">
+      <option name="closed" value="true" />
+      <created>1731664473241</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731664473241</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +282,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/psd_2d.py</url>
-          <line>75</line>
+          <line>72</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -279,10 +292,12 @@
     <SUITE FILE_PATH="coverage/MOTIVE$get_file_list.coverage" NAME="get_file_list Coverage Results" MODIFIED="1731297984135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$get_ocean_time.coverage" NAME="get_ocean_time Coverage Results" MODIFIED="1731544873504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$Python_Console.coverage" NAME="Python Console Coverage Results" MODIFIED="1731471875790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MOTIVE$psd_3d.coverage" NAME="psd_3d Coverage Results" MODIFIED="1731721651029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$find_lon_lat.coverage" NAME="find_lon_lat Coverage Results" MODIFIED="1731465985773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_2d.coverage" NAME="psd_2d Coverage Results" MODIFIED="1731559893393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$simulation_data.coverage" NAME="simulation_data Coverage Results" MODIFIED="1731474451177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_1d.coverage" NAME="psd_1d Coverage Results" MODIFIED="1731475095959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/MOTIVE$simulation_parameters.coverage" NAME="simulation_parameters Coverage Results" MODIFIED="1731721628953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$concatenate_files.coverage" NAME="concatenate_files Coverage Results" MODIFIED="1731637939776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
   </component>
 </project>

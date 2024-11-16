@@ -5,7 +5,6 @@ from tools.get_depths import get_depths_run
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
-min_num, max_num = 141095, 141311  # minimum and maximum dates of files to be analyzed
 his_files, tot_depths, time_dim = get_concatenate_parameters(depths ,min_num, max_num)
 
 if time_jump > 1:
@@ -18,7 +17,7 @@ print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 kh = freq_for_fft(len_xi_u, 2e3, N2=len_eta_v, D2=2e3) # D is given in meters
 
 ### save an empty psd file ###
-dst_path = os.path.join(data_path_psd, "psd2d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, min_eta_v))
+dst_path = os.path.join(data_path_psd, "psd2d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
 print('Saving PSD into data file:', dst_path)
 # if not os.path.exists(dst_path):
 dat_dst = Dataset(dst_path, 'w')
@@ -38,11 +37,10 @@ if depths is None: # if depths is not given
 for depth in depths:
     depth_ind = np.where(tot_depths == depth)[0][0]
     ### u/v to rho or rho to u/v
-    ind_time = 0
     for i in range(len(his_files)):
         psd_h = np.zeros(len(kh))
         his_file = his_files[i]
-        print('Uploading variables: u and v from:', i, ind_time, ind_time+time_step, depth, depth_ind, his_file)
+        print('Uploading variables: u and v from:', i, depth, depth_ind, his_file)
         sys.stdout.flush()
         dat_his = Dataset(his_file, 'r')
         try:
@@ -58,7 +56,6 @@ for depth in depths:
         except ValueError:
             raise ValueError("Custom Error message: Make sure history file fits the slicing demands. "
                              "e.g. time_dim < time_jump, xi_dim <len_xi")
-        ind_time+=time_step
         dat_his.close()
 
         ### calculating PSD ###
@@ -74,12 +71,12 @@ for depth in depths:
 
         print('Calculating radial profile of psd... ')
         kh_array, data_h = radial_profile(psd, len_eta_v, 2e3, len_xi_u, 2e3)
-        psd_h = psd_h + np.sum(data_h, axis=0)/time_size
+        psd_h = psd_h + np.sum(data_h, axis=0)
 
     print('Saving psd to dataset...')
     sys.stdout.flush()
     dat_dst = Dataset(dst_path, 'a')
-    dat_dst.variables['psd'][depth_ind, :] = psd_h
+    dat_dst.variables['psd'][depth_ind, :] = psd_h/time_size
     dat_dst.variables['kh'][:] = kh_array
     dat_dst.close()
 

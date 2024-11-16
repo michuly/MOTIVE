@@ -5,7 +5,6 @@ from concatenate_files import get_concatenate_parameters
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names ###PYTHONPATH=/analysis/michalshaham/PythonProjects/MOTIVE/ python /analysis/michalshaham/PythonProjects/MOTIVE/tools/psd_1d.py
-min_num, max_num = 141035, 142475  # minimum and maximum dates of files to be analyzed
 his_files, tot_depths, time_dim = get_concatenate_parameters(depths ,min_num, max_num)
 if depths is None: # incase you do not want to calculate all depths
     depths=tot_depths
@@ -18,7 +17,7 @@ time_size = time_step * len(his_files)
 print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 
 ### save an empty psd file ###
-dst_path = os.path.join(data_path_psd, "psd1d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, min_eta_v))
+dst_path = os.path.join(data_path_psd, "psd1d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
 print('Saving PSD into data file:', dst_path)
 # if not os.path.exists(dst_path):
 dat_dst = Dataset(dst_path, 'w')
