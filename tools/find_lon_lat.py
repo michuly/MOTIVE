@@ -16,7 +16,7 @@ def find_lon_lat(path, grd_name, lon_lat):
     return([closest_index_lon, closest_index_lat])
 
 for lon, lat in zip(lons, lats):
-    ind_lon, ind_lat = find_lon_lat(grid_path, grd_name, (lon, lat))
+    ind_lon, ind_lat = find_lon_lat(grd_path, grd_name, (lon, lat))
     print('lon index for %f: %d' % (lon, ind_lon))
     print('lat index for %f: %d' % (lat, ind_lat))
 

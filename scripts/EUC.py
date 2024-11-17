@@ -15,7 +15,7 @@ print('Saving PSD into data file:', dst_path_tavg)
 print('Saving PSD into data file:', dst_path_0_140)
 
 
-with Dataset(os.path.join(data_path, grd_name)) as dat_grd:
+with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
     lat_array = dat_grd.variables['lat_rho'][min_eta_rho:max_eta_rho+1, lon_ind]
 
 ### concatenate time to one series ###

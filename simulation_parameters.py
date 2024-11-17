@@ -10,7 +10,7 @@ lat index for 0.000000: 249
 
 if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il':
     data_path = "/southern/rbarkan/data/EPAC2km/OUTPUT/HIS/"
-    grid_path = "/southern/rbarkan/data/EPAC2km/"
+    grd_path = "/southern/rbarkan/data/EPAC2km/"
     grd_name = "Epac2km_grd.nc"
     pattern_his = "z_EPAC2km_his.*.nc"
     data_path_psd = "/southern/michalshaham/Data/MOTIVE/psd"
@@ -41,7 +41,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
 
 elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path = "/Users/michal/Data/MOTIVE/"
-    grid_path = "/Users/michal/Data/MOTIVE/"
+    grd_path = "/Users/michal/Data/MOTIVE/"
     grd_name = "Epac2km_grd_lon_lat.nc"
     grd_name_sampled = "Epac2km_grd_lon_lat_sampled.nc"
     pattern_his = "z_EPAC2km_vel.*.nc"
