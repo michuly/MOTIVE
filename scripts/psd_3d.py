@@ -19,17 +19,17 @@ freq = freq_for_fft(time_size, time_jump) # D is given in meters
 ### save an empty psd file ###
 dst_path = os.path.join(data_path_psd, "psd3d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
 print('Saving PSD into data file:', dst_path)
-# if not os.path.exists(dst_path):
-dat_dst = Dataset(dst_path, 'w')
-dat_dst.createDimension('depths', len(tot_depths))
-dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
-dat_dst.variables['depths'][:] = tot_depths
-dat_dst.createDimension('kh', len(kh))
-dat_dst.createVariable('kh', np.dtype('float32').char, ('kh',))
-dat_dst.createDimension('freq', len(freq))
-dat_dst.createVariable('freq', np.dtype('float32').char, ('freq',))
-dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','freq','kh'))
-dat_dst.close()
+if not os.path.exists(dst_path):
+    dat_dst = Dataset(dst_path, 'w')
+    dat_dst.createDimension('depths', len(tot_depths))
+    dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
+    dat_dst.variables['depths'][:] = tot_depths
+    dat_dst.createDimension('kh', len(kh))
+    dat_dst.createVariable('kh', np.dtype('float32').char, ('kh',))
+    dat_dst.createDimension('freq', len(freq))
+    dat_dst.createVariable('freq', np.dtype('float32').char, ('freq',))
+    dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','freq','kh'))
+    dat_dst.close()
 
 if get_depths_run(sys.argv, tot_depths) is not None: # depths from outside bash script
     depths = get_depths_run(sys.argv, tot_depths)

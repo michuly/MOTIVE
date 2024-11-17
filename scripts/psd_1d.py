@@ -1,3 +1,4 @@
+from scripts.EUC import ind_time
 from simulation_parameters import *
 from imports_file import *
 
@@ -54,7 +55,7 @@ for depth_ind, depth in enumerate(depths):
         except ValueError:
             raise ValueError("Custom Error message: Make sure history file fits the slicing demands. "
                              "e.g. time_dim < time_jump, xi_dim <len_xi")
-        ind_time+=time_step
+        ind_time=ind_time+time_step
         dat_his.close()
 
     ### calculating PSD ###

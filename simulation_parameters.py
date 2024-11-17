@@ -26,10 +26,18 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     min_eta_v, max_eta_v = 137, 359
     min_xi_rho, max_xi_rho = 223,1334
     min_xi_u, max_xi_u = 223,1333
-    len_eta_rho = max_eta_rho - min_eta_rho
-    len_xi_rho = max_xi_rho - min_xi_rho
-    len_eta_v = max_eta_v - min_eta_v
-    len_xi_u = max_xi_u - min_xi_u
+    if to_slice:
+        len_eta_rho = max_eta_rho - min_eta_rho
+        len_xi_rho = max_xi_rho - min_xi_rho
+        len_eta_v = max_eta_v - min_eta_v
+        len_xi_u = max_xi_u - min_xi_u
+    else:
+        len_eta_rho = 722
+        len_xi_rho = 2002
+        len_eta_v = 721
+        len_xi_u = 2001
+    lon_ind = 788 # 140W
+    lat_ind = 249 # 0N
 
 elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path = "/Users/michal/Data/MOTIVE/"
@@ -60,6 +68,8 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
         len_xi_rho = max_xi_rho - min_xi_rho
         len_eta_v = max_eta_v - min_eta_v
         len_xi_u = max_xi_u - min_xi_u
+    lon_ind = 788 - min_xi_u # 140W
+    lat_ind = 249 - min_eta_rho # 0N
 
 
 tot_depths = np.array([-0, -1, -2, -4, -7, -10, -15, -20, -25, -30, -40, -50, -60, -70,
