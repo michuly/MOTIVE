@@ -44,7 +44,7 @@ for depth in depths:
     ind_time = 0
     for i in range(len(his_files)):
         his_file = his_files[i]
-        print('Uploading variables: u and v from:', i, ind_time, ind_time+time_step, depth_ind, depth, his_file)
+        print('Uploading variables: u from:', i, ind_time, ind_time+time_step, depth_ind, depth, his_file)
         sys.stdout.flush()
         dat_his = Dataset(his_file, 'r')
         try:
@@ -52,7 +52,7 @@ for depth in depths:
                 u_tmp=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
             else:
                 u_tmp=dat_his.variables['u'][::time_jump,depth_ind,:,:] # might be too slow with "::time_jump"
-            print('Changing coordinates from rho to u/v...')
+            print('Changing coordinates from rho to u...')
             u[ind_time:(ind_time + time_step), :, :] = 0.5 * (u_tmp[:, 1:, :] + u_tmp[:, -1:, :])
 
         except ValueError:

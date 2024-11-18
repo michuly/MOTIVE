@@ -18,7 +18,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     min_num, max_num = 141095, 143111
 # minimum and maximum dates of files to be analyzed
 
-    to_slice=True
+    to_slice=False
     len_time = 12
     time_jump = 3
     depths = None
@@ -42,8 +42,8 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
 elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path = "/Users/michal/Data/MOTIVE/"
     grd_path = "/Users/michal/Data/MOTIVE/"
-    grd_name = "Epac2km_grd_lon_lat.nc"
-    grd_name_sampled = "Epac2km_grd_lon_lat_sampled.nc"
+    grd_name_tot = "Epac2km_grd_lon_lat.nc"
+    grd_name = "Epac2km_grd_lon_lat_sampled.nc"
     pattern_his = "z_EPAC2km_vel.*.nc"
     pattern_his_1t = "z_EPAC2km_vel_1t.*.nc"
     data_path_psd = "/Users/michal/Data/MOTIVE/psd"
@@ -58,16 +58,17 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     min_eta_v,max_eta_v=137,359
     min_xi_rho,max_xi_rho=612,945
     min_xi_u,max_xi_u=612,944
-    if not to_slice:
-        len_eta_rho = max_eta_rho - min_eta_rho +1
-        len_xi_rho = max_xi_rho - min_xi_rho+1
-        len_eta_v = max_eta_v - min_eta_v+1
-        len_xi_u = max_xi_u - min_xi_u+1
-    else:
+    if to_slice:
         len_eta_rho = max_eta_rho - min_eta_rho
         len_xi_rho = max_xi_rho - min_xi_rho
         len_eta_v = max_eta_v - min_eta_v
         len_xi_u = max_xi_u - min_xi_u
+    else:
+        len_eta_rho = max_eta_rho - min_eta_rho + 1
+        len_xi_rho = max_xi_rho - min_xi_rho + 1
+        len_eta_v = max_eta_v - min_eta_v + 1
+        len_xi_u = max_xi_u - min_xi_u + 1
+
     lon_ind = 788 - min_xi_u # 140W
     lat_ind = 249 - min_eta_rho # 0N
 

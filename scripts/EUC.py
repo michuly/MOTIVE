@@ -11,12 +11,15 @@ depths = tot_depths
 ### save an empty psd file ###
 dst_path_tavg = os.path.join(data_path_his, "u_tavg_test_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
 dst_path_0_140 = os.path.join(data_path_his, "u_0_140_test_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
-print('Saving PSD into data file:', dst_path_tavg)
-print('Saving PSD into data file:', dst_path_0_140)
+print('Saving u into data file:', dst_path_tavg)
+print('Saving u into data file:', dst_path_0_140)
 
 
 with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
-    lat_array = dat_grd.variables['lat_rho'][min_eta_rho:max_eta_rho+1, lon_ind]
+    if to_slice:
+        lat_array = dat_grd.variables['lat_rho'][min_eta_rho:max_eta_rho+1, lon_ind]
+    else:
+        lat_array = dat_grd.variables['lat_rho'][:, lon_ind]
 
 ### concatenate time to one series ###
 time_step = 12
@@ -30,7 +33,7 @@ ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
     his_file = his_files[i]
-    print('Uploading variables: u and v from:', i, ind_time, (ind_time+time_step), his_file)
+    print('Uploading variables: u  from:', i, ind_time, (ind_time+time_step), his_file)
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
     u_tavg[ind_time:(ind_time+time_step), :, :] = dat_his.variables['u'][:, :, :, lon_ind]
@@ -39,6 +42,7 @@ for i in range(len(his_files)):
     dat_his.close()
     ind_time = ind_time + time_step
 
+print('Check dimensions: ', lat_array.shape, len_eta_rho, u_tavg.shape, u_0_140.shape)
 
 print('Saving time average zonal velocity...')
 # if not os.path.exists(dst_path):
