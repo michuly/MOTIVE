@@ -13,22 +13,22 @@ else:
 time_size = time_step * len(his_files)
 print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 
-kh = freq_for_fft(len_xi_u, 2e3, N2=len_eta_v, D2=2e3) # D is given in meters
-freq = freq_for_fft(time_size, time_jump) # D is given in meters
+kx = np.fft.fftfreq(len_xi_u, 2e3) # D is given in meters
+freq = np.fft.fftfreq(time_size, time_jump) # D is given in meters
 
 ### save an empty psd file ###
-dst_path = os.path.join(data_path_psd, "psd3d_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+dst_path = os.path.join(data_path_psd, "psd_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
 print('Saving PSD into data file:', dst_path)
 if not os.path.exists(dst_path):
     dat_dst = Dataset(dst_path, 'w')
     dat_dst.createDimension('depths', len(tot_depths))
     dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
     dat_dst.variables['depths'][:] = tot_depths
-    dat_dst.createDimension('kh', len(kh))
-    dat_dst.createVariable('kh', np.dtype('float32').char, ('kh',))
+    dat_dst.createDimension('kx', len(kx))
+    dat_dst.createVariable('kx', np.dtype('float32').char, ('kx',))
     dat_dst.createDimension('freq', len(freq))
     dat_dst.createVariable('freq', np.dtype('float32').char, ('freq',))
-    dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','freq','kh'))
+    dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','freq','kx'))
     dat_dst.close()
 
 if get_depths_run(sys.argv, tot_depths) is not None: # depths from outside bash script
@@ -40,7 +40,6 @@ if depths is None: # if depths is not given
 for depth in depths:
     depth_ind = np.where(tot_depths == depth)[0][0]
     u = np.zeros((time_size, len_eta_v, len_xi_u))
-    v = np.zeros((time_size, len_eta_v, len_xi_u))
 
     ind_time = 0
     for i in range(len(his_files)):
@@ -51,15 +50,10 @@ for depth in depths:
         try:
             if to_slice: # Shape: time, depth, y, x?e
                 u_tmp=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
-                v_tmp=dat_his.variables['v'][::time_jump,depth_ind,min_eta_v:max_eta_v, min_xi_rho:max_xi_rho]
             else:
                 u_tmp=dat_his.variables['u'][::time_jump,depth_ind,:,:] # might be too slow with "::time_jump"
-                v_tmp=dat_his.variables['v'][::time_jump,depth_ind,:,:]
             print('Changing coordinates from rho to u/v...')
-            u_tmp = 0.5 * (u_tmp[:, 1:, :] + u_tmp[:, -1:, :])
-            v_tmp = 0.5 * (v_tmp[:, :, 1:] + v_tmp[:, :, -1:])
-            u[ind_time:(ind_time + time_step), :, :] = u_tmp
-            v[ind_time:(ind_time + time_step), :, :] = v_tmp
+            u[ind_time:(ind_time + time_step), :, :] = 0.5 * (u_tmp[:, 1:, :] + u_tmp[:, -1:, :])
 
         except ValueError:
             raise ValueError("Custom Error message: Make sure history file fits the slicing demands. "
@@ -71,23 +65,14 @@ for depth in depths:
     print('Calculating PSD... ')
     sys.stdout.flush()
     u = np.float32(u)
-    u_tf = np.fft.fftn(u)/np.prod(u.shape)
-    u_psd = np.real(u_tf * np.conjugate(u_tf))
-    v = np.float32(v)
-    v_tf = np.fft.fftn(v)/np.prod(v.shape)
-    v_psd = np.real(v_tf * np.conjugate(v_tf))
-    psd = u_psd+v_psd
-
-    print('Calculating radial profile of psd... ')
-    kh_array, psd_h = radial_profile(psd[:len(freq),:,:], len_eta_v, 2e3, len_xi_u, 2e3)
-    print('Compare Kh dimensions: ', len(kh), len(kh_array))
-    print('Compare freq dimensions: ', len(freq), int(np.floor(time_size/2+1)))
+    u_tf = np.fft.fft2(u, axes=(0,2))/len_xi_u/time_size
+    psd = np.real(u_tf * np.conjugate(u_tf))
 
     print('Saving psd to dataset...')
     sys.stdout.flush()
     dat_dst = Dataset(dst_path, 'a')
-    dat_dst.variables['psd'][depth_ind, :, :] = psd_h
-    dat_dst.variables['kh'][:] = kh_array
+    dat_dst.variables['psd'][depth_ind, :, :] = psd.mean(axis=1)
+    dat_dst.variables['kx'][:] = kx
     dat_dst.variables['freq'][:] = freq
     dat_dst.close()
 

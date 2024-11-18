@@ -56,7 +56,7 @@ print('DONE: saved u to data file ', dst_path_tavg)
 
 print('Saving 0N 140W zonal velocity...')
 # if not os.path.exists(dst_path):
-dat_dst = Dataset(dst_path_tavg, 'w')
+dat_dst = Dataset(dst_path_0_140, 'w')
 dat_dst.createDimension('depths', len(tot_depths))
 dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
 dat_dst.variables['depths'][:] = tot_depths
