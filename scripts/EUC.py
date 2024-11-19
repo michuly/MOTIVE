@@ -6,7 +6,7 @@ get two plots:
 1. u at 0N 140W, depth vs. time
 2. u at 104W, temporal average, detph vs. latitude"""
 ### get history file names
-his_files, tot_depths, time_dim = get_concatenate_parameters(depths ,min_num, max_num)
+his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 depths = tot_depths
 ### save an empty psd file ###
 dst_path_tavg = os.path.join(data_path_his, "u_tavg_test_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
