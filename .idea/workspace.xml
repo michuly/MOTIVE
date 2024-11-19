@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="psd 3d and EUC">
+    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="zonal wavenumber">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/psd_3d_zonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_3d_zonal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/EUC.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/EUC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/concatenate_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/concatenate_files.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,31 +24,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2oaxAYbaYewcrULbr1N2apHurLw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.EUC.executor": "Run",
-    "Python.psd_3d_zonal.executor": "Run",
-    "Python.simulation_parameters.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE/scripts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.EUC.executor&quot;: &quot;Run&quot;,
+    &quot;Python.psd_3d_zonal.executor&quot;: &quot;Run&quot;,
+    &quot;Python.simulation_parameters.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michal/PythonProjects/MOTIVE/scripts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scripts" />
@@ -60,7 +60,7 @@
       <recent name="$PROJECT_DIR$/parcels" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.psd_3d_zonal">
+  <component name="RunManager" selected="Python.EUC">
     <configuration name="EUC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -132,6 +132,9 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -179,8 +182,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.psd_3d_zonal" />
         <item itemvalue="Python.EUC" />
+        <item itemvalue="Python.psd_3d_zonal" />
         <item itemvalue="Python.simulation_parameters" />
         <item itemvalue="Python.find_lon_lat" />
         <item itemvalue="Python.psd_3d" />
@@ -208,7 +211,8 @@
       <updated>1731121344679</updated>
       <workItem from="1731271897029" duration="16056000" />
       <workItem from="1731449717829" duration="54579000" />
-      <workItem from="1731903455516" duration="3019000" />
+      <workItem from="1731903455516" duration="3632000" />
+      <workItem from="1731984211759" duration="996000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -314,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731907909529</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="zonal wavenumber">
+      <option name="closed" value="true" />
+      <created>1731914475842</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731914475842</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +347,8 @@
     <MESSAGE value="psd 2d" />
     <MESSAGE value="psd 3d" />
     <MESSAGE value="psd 3d and EUC" />
-    <option name="LAST_COMMIT_MESSAGE" value="psd 3d and EUC" />
+    <MESSAGE value="zonal wavenumber" />
+    <option name="LAST_COMMIT_MESSAGE" value="zonal wavenumber" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

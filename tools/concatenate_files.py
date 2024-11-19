@@ -4,14 +4,15 @@ from netCDF4 import Dataset
 import numpy as np
 
 # from R_tools_new_michal import zlevs, gridDict, Forder
-def get_concatenate_parameters(depths=None ,min_num=0, max_num=0):
+def get_concatenate_parameters(min_num=0, max_num=0):
     ### get history file names ###
     nums, his_files = get_file_list(data_path, pattern_his, num_len=6)
     print('Maximum and Minimum time of file found: ', np.min(nums), np.max(nums))
+    print('Looking for numbers: ', min_num, max_num)
     if min_num != 0:
-        his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] >= min_num)]
+        his_files = his_files[nums >= min_num]
     if max_num != 0:
-        his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] <= max_num)]
+        his_files = his_files[nums <= max_num]
     print('Example for history file: ', his_files[-1])
     ### set time parameters ###
     with Dataset(his_files[0], 'r') as dat_his:

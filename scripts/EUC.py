@@ -36,8 +36,11 @@ for i in range(len(his_files)):
     print('Uploading variables: u  from:', i, ind_time, (ind_time+time_step), his_file)
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
-    u_tavg[ind_time:(ind_time+time_step), :, :] = dat_his.variables['u'][:, :, :, lon_ind]
-    u_0_140[ind_time:(ind_time+time_step), :] = dat_his.variables['u'][:, :, lat_ind, lon_ind]
+    if to_slice:  # Shape: time, depth, y, x?e
+        u_tavg[ind_time:(ind_time + time_step), :, :] = dat_his.variables['u'][:, :, min_eta_rho:max_eta_rho, lon_ind]
+    else:
+        u_tavg[ind_time:(ind_time + time_step), :, :] = dat_his.variables['u'][:, :, :, lon_ind]
+    u_0_140[ind_time:(ind_time + time_step), :] = dat_his.variables['u'][:, :, lat_ind, lon_ind]
     ocean_time[ind_time:(ind_time+time_step)] = dat_his.variables['ocean_time'][:]
     dat_his.close()
     ind_time = ind_time + time_step
