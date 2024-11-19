@@ -11,8 +11,10 @@ def get_concatenate_parameters(min_num=0, max_num=0):
     print('Looking for numbers: ', min_num, max_num)
     if min_num != 0:
         his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] >= min_num)]
+        nums=nums[nums >= min_num]
     if max_num != 0:
         his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] <= max_num)]
+        # nums = nums[nums <= max_num]
     print('Example for history file: ', his_files[-1])
     ### set time parameters ###
     with Dataset(his_files[0], 'r') as dat_his:

@@ -35,7 +35,7 @@ def get_file_list(path, pattern, nums=None, num_len=6):
         #         file_list_tmp.append(file_name)
         file_list=file_list_tmp
 
-    return sorted(nums), sorted(file_list)
+    return np.array(sorted(nums)), sorted(file_list)
 
 
 ### Tests

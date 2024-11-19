@@ -4,7 +4,7 @@ from imports_file import *
 # from R_tools_new_michal import zlevs, gridDict, Forder
 
 ### get history file names
-his_files, tot_depths, time_dim = get_concatenate_parameters(depths ,min_num, max_num)
+his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 
 if time_jump > 1:
     time_step = int(np.floor(time_dim / time_jump))
@@ -17,22 +17,24 @@ kx = np.fft.fftfreq(len_xi_u, 2e3) # D is given in meters
 freq = np.fft.fftfreq(time_size, time_jump) # D is given in meters
 
 ### save an empty psd file ###
-dst_path_imag = os.path.join(data_path_psd, "fft_imag_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
-dst_path_real = os.path.join(data_path_psd, "fft_real_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
-print('Saving PSD into data file:', dst_path_imag)
-print('Saving PSD into data file:', dst_path_real)
-for dst_path in [dst_path_real, dst_path_imag]:
-    if not os.path.exists(dst_path):
-        dat_dst = Dataset(dst_path, 'w')
-        dat_dst.createDimension('depths', len(tot_depths))
-        dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
-        dat_dst.variables['depths'][:] = tot_depths
-        dat_dst.createDimension('kx', len(kx))
-        dat_dst.createVariable('kx', np.dtype('float32').char, ('kx',))
-        dat_dst.createDimension('freq', len(freq))
-        dat_dst.createVariable('freq', np.dtype('float32').char, ('freq',))
-        dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','freq','kx'))
-        dat_dst.close()
+# dst_path_imag = os.path.join(data_path_psd, "fft_imag_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+# dst_path_real = os.path.join(data_path_psd, "fft_real_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+dst_path = os.path.join(data_path_psd, "psd_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+# print('Saving PSD into data file:', dst_path_imag)
+# print('Saving PSD into data file:', dst_path_real)
+print('Saving PSD into data file:', dst_path)
+# for dst_path in [dst_path_real, dst_path_imag]:
+if not os.path.exists(dst_path):
+    dat_dst = Dataset(dst_path, 'w')
+    dat_dst.createDimension('depths', len(tot_depths))
+    dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
+    dat_dst.variables['depths'][:] = tot_depths
+    dat_dst.createDimension('kx', len(kx))
+    dat_dst.createVariable('kx', np.dtype('float32').char, ('kx',))
+    dat_dst.createDimension('freq', len(freq))
+    dat_dst.createVariable('freq', np.dtype('float32').char, ('freq',))
+    dat_dst.createVariable('psd', np.dtype('float32').char, ('depths','freq','kx'))
+    dat_dst.close()
 
 if get_depths_run(sys.argv, tot_depths) is not None: # depths from outside bash script
     depths = get_depths_run(sys.argv, tot_depths)
@@ -69,22 +71,31 @@ for depth in depths:
     sys.stdout.flush()
     u = np.float32(u)
     u_tf = np.fft.fft2(u, axes=(0,2))/len_xi_u/time_size
-    # psd = np.real(u_tf * np.conjugate(u_tf))
+    psd = np.real(u_tf * np.conjugate(u_tf))
 
     print('Saving psd to dataset...')
     sys.stdout.flush()
-    dat_dst = Dataset(dst_path_real, 'a')
-    dat_dst.variables['psd'][depth_ind, :, :] = np.real(u_tf).mean(axis=1)
+    dat_dst = Dataset(dst_path, 'a')
+    dat_dst.variables['psd'][depth_ind, :, :] = psd.mean(axis=1)
     dat_dst.variables['kx'][:] = kx
     dat_dst.variables['freq'][:] = freq
     dat_dst.close()
 
-    sys.stdout.flush()
-    dat_dst = Dataset(dst_path_imag, 'a')
-    dat_dst.variables['psd'][depth_ind, :, :] = np.imag(u_tf).mean(axis=1)
-    dat_dst.variables['kx'][:] = kx
-    dat_dst.variables['freq'][:] = freq
-    dat_dst.close()
+    # print('Saving psd to dataset...')
+    # sys.stdout.flush()
+    # dat_dst = Dataset(dst_path_real, 'a')
+    # dat_dst.variables['psd'][depth_ind, :, :] = np.real(u_tf).mean(axis=1)
+    # dat_dst.variables['kx'][:] = kx
+    # dat_dst.variables['freq'][:] = freq
+    # dat_dst.close()
 
-print('DONE: saved psd to data file ', dst_path_real)
-print('DONE: saved psd to data file ', dst_path_imag)
+    # sys.stdout.flush()
+    # dat_dst = Dataset(dst_path_imag, 'a')
+    # dat_dst.variables['psd'][depth_ind, :, :] = np.imag(u_tf).mean(axis=1)
+    # dat_dst.variables['kx'][:] = kx
+    # dat_dst.variables['freq'][:] = freq
+    # dat_dst.close()
+
+print('DONE: saved psd to data file ', dst_path)
+# print('DONE: saved psd to data file ', dst_path_real)
+# print('DONE: saved psd to data file ', dst_path_imag)
