@@ -18,9 +18,9 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     min_num, max_num = 141095, 143111
 # minimum and maximum dates of files to be analyzed
 
-    to_slice=True
+    to_slice=False
     len_time = 12
-    time_jump = 3
+    time_jump = 1
     depths = None
     min_eta_rho, max_eta_rho = 137, 360
     min_eta_v, max_eta_v = 137, 359

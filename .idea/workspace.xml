@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="test psd zonal">
-      <change afterPath="$PROJECT_DIR$/scripts/calc_density.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" afterDir="false" />
+    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="meridional velocity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/psd_3d_zonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_3d_zonal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/w_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/w_prime.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_parameters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/concatenate_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/concatenate_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/find_lon_lat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/find_lon_lat.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +36,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.EUC.executor": "Run",
-    "Python.find_lon_lat.executor": "Run",
-    "Python.psd_3d_zonal.executor": "Run",
-    "Python.simulation_parameters.executor": "Run",
-    "Python.v_zonal_cross_section.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE/scripts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.EUC.executor&quot;: &quot;Run&quot;,
+    &quot;Python.find_lon_lat.executor&quot;: &quot;Run&quot;,
+    &quot;Python.psd_3d_zonal.executor&quot;: &quot;Run&quot;,
+    &quot;Python.simulation_parameters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.v_zonal_cross_section.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michal/PythonProjects/MOTIVE/scripts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scripts" />
@@ -67,7 +64,7 @@
       <recent name="$PROJECT_DIR$/parcels" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.v_zonal_cross_section">
+  <component name="RunManager" selected="Python.psd_3d_zonal">
     <configuration name="EUC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -186,9 +183,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.psd_3d_zonal" />
         <item itemvalue="Python.v_zonal_cross_section" />
         <item itemvalue="Python.find_lon_lat" />
-        <item itemvalue="Python.psd_3d_zonal" />
         <item itemvalue="Python.EUC" />
         <item itemvalue="Python.simulation_parameters" />
       </list>
@@ -217,7 +214,8 @@
       <workItem from="1731449717829" duration="54579000" />
       <workItem from="1731903455516" duration="3632000" />
       <workItem from="1731984211759" duration="3020000" />
-      <workItem from="1731994783700" duration="12194000" />
+      <workItem from="1731994783700" duration="14217000" />
+      <workItem from="1732141667939" duration="2174000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -363,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732065341559</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="meridional velocity">
+      <option name="closed" value="true" />
+      <created>1732083383667</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732083383667</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,7 +393,8 @@
     <MESSAGE value="zonal wavenumber" />
     <MESSAGE value="EUC" />
     <MESSAGE value="test psd zonal" />
-    <option name="LAST_COMMIT_MESSAGE" value="test psd zonal" />
+    <MESSAGE value="meridional velocity" />
+    <option name="LAST_COMMIT_MESSAGE" value="meridional velocity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,7 +411,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/psd_3d_zonal.py</url>
-          <line>60</line>
+          <line>74</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

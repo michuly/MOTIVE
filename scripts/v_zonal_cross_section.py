@@ -8,6 +8,7 @@ get two plots:
 1. u at 0N 140W, depth vs. time
 2. u at 104W, temporal average, detph vs. latitude"""
 ### get history file names
+min_num, max_num = 141743, 141743
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 depths = tot_depths
 ### save an empty psd file ###
@@ -21,7 +22,6 @@ with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
         lon_array = dat_grd.variables['lon_rho'][lat_ind_1N, :]
 
 ### concatenate time to one series ###
-min_num, max_num = 141743, 141743
 time_step = 12
 ind_time = 0
 time_size = time_step * len(his_files)
@@ -31,7 +31,7 @@ ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
     his_file = his_files[i]
-    print('Uploading variables: u  from:', i, ind_time, (ind_time+time_step), his_file)
+    print('Uploading variables: v  from:', i, ind_time, (ind_time+time_step), his_file)
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
     if to_slice:  # Shape: time, depth, y, x?e
