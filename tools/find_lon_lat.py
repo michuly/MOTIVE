@@ -3,8 +3,8 @@ from simulation_parameters import *
 
 # lons = [18.946, 26.731]
 # lats = [38.120, 33.693]
-lons = [-140, -130, -150]
-lats = [0, -2, 2]
+lons = [-140, -140, -130, -150]
+lats = [0, 1, -2, 2]
 
 def find_lon_lat(path, grd_name_tot, lon_lat):
     (lon, lat) = lon_lat

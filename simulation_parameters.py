@@ -38,6 +38,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
         len_xi_u = 2001
     lon_ind = 788 # 140W
     lat_ind = 249 # 0N
+    lat_ind_1N = 304 # 1N
 
 elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path = "/Users/michal/Data/MOTIVE/"
@@ -50,7 +51,7 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path_his = "/Users/michal/Data/MOTIVE/his"
     min_num, max_num = 141095, 141811  # minimum and maximum dates of files to be analyzed
 
-    to_slice=True
+    to_slice=False
     len_time=12
     time_jump=1
     depths=[-1,-40,-200]
@@ -71,6 +72,7 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
 
     lon_ind = 788 - min_xi_u # 140W
     lat_ind = 249 - min_eta_rho # 0N
+    lat_ind_1N = 304 - min_eta_rho # 1N
 
 
 tot_depths = np.array([-0, -1, -2, -4, -7, -10, -15, -20, -25, -30, -40, -50, -60, -70,

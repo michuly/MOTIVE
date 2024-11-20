@@ -82,6 +82,7 @@ for depth in depths:
     print('Check dimensions: ', psd.shape, len(kx), len(freq), len(tot_depths), 'to slice: ', to_slice)
     sys.stdout.flush()
     dat_dst = Dataset(dst_path, 'a')
+    print('Check dimensions: netcdf shape', dat_dst.variables['psd'].shape)
     dat_dst.variables['psd'][depth_ind, :, :] = psd.mean(axis=1)
     dat_dst.variables['kx'][:] = kx
     dat_dst.variables['freq'][:] = freq
