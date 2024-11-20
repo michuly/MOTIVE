@@ -18,7 +18,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     min_num, max_num = 141095, 143111
 # minimum and maximum dates of files to be analyzed
 
-    to_slice=False
+    to_slice=True
     len_time = 12
     time_jump = 3
     depths = None
@@ -50,7 +50,7 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path_his = "/Users/michal/Data/MOTIVE/his"
     min_num, max_num = 141095, 141811  # minimum and maximum dates of files to be analyzed
 
-    to_slice=False
+    to_slice=True
     len_time=12
     time_jump=1
     depths=[-1,-40,-200]

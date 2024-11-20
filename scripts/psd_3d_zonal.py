@@ -12,14 +12,19 @@ else:
     time_step = time_dim
 time_size = time_step * len(his_files)
 print("Time parameters: ", time_size, time_dim, time_step, time_jump)
-
 kx = np.fft.fftfreq(len_xi_u, 2e3) # D is given in meters
 freq = np.fft.fftfreq(time_size, time_jump) # D is given in meters
+print('Check spatial dimensions: len_xi_u %d, min_xi %d, max_xi %d, kx %d, freq %d' % (len_xi_u, min_xi_u, max_xi_u,
+                                                                                       len(kx), len(freq)))
 
 ### save an empty psd file ###
 # dst_path_imag = os.path.join(data_path_psd, "fft_imag_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
 # dst_path_real = os.path.join(data_path_psd, "fft_real_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
-dst_path = os.path.join(data_path_psd, "psd_zonal_freq_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+if to_slice:
+    dst_path = os.path.join(data_path_psd, "psd_zonal_freq_kx_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+else:
+    dst_path = os.path.join(data_path_psd, "psd_zonal_freq_kx.nc")
+
 # print('Saving PSD into data file:', dst_path_imag)
 # print('Saving PSD into data file:', dst_path_real)
 print('Saving PSD into data file:', dst_path)
@@ -74,6 +79,7 @@ for depth in depths:
     psd = np.real(u_tf * np.conjugate(u_tf))
 
     print('Saving psd to dataset...')
+    print('Check dimensions: ', psd.shape, len(kx), len(freq), len(tot_depths), 'to slice: ', to_slice)
     sys.stdout.flush()
     dat_dst = Dataset(dst_path, 'a')
     dat_dst.variables['psd'][depth_ind, :, :] = psd.mean(axis=1)

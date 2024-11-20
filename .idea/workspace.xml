@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="EUC">
-      <change afterPath="$PROJECT_DIR$/tools/filter_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Model_plots/psd_1d.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/psd_3d_zonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/psd_3d_zonal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_parameters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/concatenate_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/concatenate_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/get_file_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/get_file_list.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +215,7 @@
       <workItem from="1731449717829" duration="54579000" />
       <workItem from="1731903455516" duration="3632000" />
       <workItem from="1731984211759" duration="3020000" />
-      <workItem from="1731994783700" duration="2742000" />
+      <workItem from="1731994783700" duration="5386000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -346,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731991480329</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="EUC">
+      <option name="closed" value="true" />
+      <created>1732009486664</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732009486664</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,6 +391,11 @@
           <line>71</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/psd_3d_zonal.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -396,7 +408,7 @@
     <SUITE FILE_PATH="coverage/MOTIVE$get_ocean_time.coverage" NAME="get_ocean_time Coverage Results" MODIFIED="1731544873504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_3d.coverage" NAME="psd_3d Coverage Results" MODIFIED="1731721651029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$find_lon_lat.coverage" NAME="find_lon_lat Coverage Results" MODIFIED="1731747792666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/MOTIVE$psd_3d_zonal.coverage" NAME="psd_3d_zonal Coverage Results" MODIFIED="1731906424923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/MOTIVE$psd_3d_zonal.coverage" NAME="psd_3d_zonal Coverage Results" MODIFIED="1732063941548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_2d.coverage" NAME="psd_2d Coverage Results" MODIFIED="1731559893393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$EUC.coverage" NAME="EUC Coverage Results" MODIFIED="1731907658613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_1d.coverage" NAME="psd_1d Coverage Results" MODIFIED="1731475095959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
