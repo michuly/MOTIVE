@@ -73,7 +73,7 @@ for depth in depths:
         dat_his = Dataset(his_file, 'r')
         try:
             if to_slice: # Shape: time, depth, y, x?e
-                v_tmp=dat_his.variables['v'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
+                v_tmp=dat_his.variables['v'][::time_jump,depth_ind,min_eta_v:max_eta_v, min_xi_rho:max_xi_rho]
                 u_tmp=dat_his.variables['u'][::time_jump,depth_ind,min_eta_rho:max_eta_rho, min_xi_u:max_xi_u]
             else:
                 v_tmp=dat_his.variables['v'][::time_jump,depth_ind,:,:] # might be too slow with "::time_jump"

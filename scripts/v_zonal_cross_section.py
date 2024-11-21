@@ -8,7 +8,7 @@ get two plots:
 1. u at 0N 140W, depth vs. time
 2. u at 104W, temporal average, detph vs. latitude"""
 ### get history file names
-min_num, max_num = 141743, 141743
+min_num, max_num = 141743-24*15, 141743+24*15
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 depths = tot_depths
 ### save an empty psd file ###
@@ -55,7 +55,7 @@ dat_dst.variables['depths'][:] = tot_depths
 dat_dst.createDimension('lon', len_xi_rho)
 dat_dst.createVariable('lon', np.dtype('float32').char, ('lon',))
 dat_dst.variables['lon'][:] = lon_array
-dat_dst.createDimension('ocean_time', time_step)
+dat_dst.createDimension('ocean_time', time_size)
 dat_dst.createVariable('ocean_time', np.dtype('float32').char, ('ocean_time',))
 dat_dst.variables['ocean_time'][:] = ocean_time
 dat_dst.createVariable('v', np.dtype('float32').char, ('ocean_time','depths','lon'))
