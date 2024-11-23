@@ -8,7 +8,7 @@ get two plots:
 1. u at 0N 140W, depth vs. time
 2. u at 104W, temporal average, detph vs. latitude"""
 ### get history file names
-min_num, max_num = 141743-24*15, 141743+24*15
+min_num, max_num = 141743-24*1, 141743+24*1
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 depths = tot_depths
 ### save an empty psd file ###
