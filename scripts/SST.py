@@ -69,8 +69,8 @@ dat_dst.variables['lon'][:] = lon_array
 dat_dst.createDimension('ocean_time', len(ocean_time))
 dat_dst.createVariable('ocean_time', np.dtype('float32').char, ('ocean_time',))
 dat_dst.variables['ocean_time'][:] = ocean_time
-dat_dst.createVariable(sst, np.dtype('float32').char, ('ocean_time','lat','lon'))
-dat_dst.variables[sst][:] = sst
+dat_dst.createVariable('sst', np.dtype('float32').char, ('ocean_time','lat','lon'))
+dat_dst.variables['sst'][:] = sst
 dat_dst.close()
 print('DONE: saved SST to data file ', dst_path)
 sys.stdout.flush()
