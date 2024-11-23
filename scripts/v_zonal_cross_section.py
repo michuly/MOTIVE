@@ -56,6 +56,8 @@ v = v[:n_chunks * 24, :, :]
 v=v.reshape(-1, 24, v.shape[1], v.shape[2]).mean(axis=1)
 dvz = dvz[:n_chunks * 24, :, :]
 dvz=dvz.reshape(-1, 24, v.shape[1], v.shape[2]).mean(axis=1)
+ocean_time = ocean_time[:n_chunks * 24][::24]
+print('Check dimensions: ', v.shape, dvz.shape, ocean_time.shape)
 
 print('Saving 1N meridional velocity...')
 # if not os.path.exists(dst_path):
@@ -66,9 +68,9 @@ dat_dst.variables['depths'][:] = tot_depths
 dat_dst.createDimension('lon', len_xi_rho)
 dat_dst.createVariable('lon', np.dtype('float32').char, ('lon',))
 dat_dst.variables['lon'][:] = lon_array
-dat_dst.createDimension('ocean_time', time_size//24)
+dat_dst.createDimension('ocean_time', len(ocean_time))
 dat_dst.createVariable('ocean_time', np.dtype('float32').char, ('ocean_time',))
-dat_dst.variables['ocean_time'][:] = ocean_time[::,24]
+dat_dst.variables['ocean_time'][:] = ocean_time
 dat_dst.createVariable('v', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['v'][:] = v
 dat_dst.createVariable('dvz', np.dtype('float32').char, ('ocean_time','depths','lon'))

@@ -220,7 +220,7 @@
       <workItem from="1731994783700" duration="14217000" />
       <workItem from="1732141667939" duration="4818000" />
       <workItem from="1732176652819" duration="274000" />
-      <workItem from="1732343812006" duration="2319000" />
+      <workItem from="1732343812006" duration="2907000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -390,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732152975981</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="meridional velocity and longer psd">
+      <option name="closed" value="true" />
+      <created>1732353864234</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732353864234</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
