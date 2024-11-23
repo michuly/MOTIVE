@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="meridional velocity and longer psd">
+      <change afterPath="$PROJECT_DIR$/scripts/SST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,23 +34,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.EUC.executor&quot;: &quot;Run&quot;,
-    &quot;Python.find_lon_lat.executor&quot;: &quot;Run&quot;,
-    &quot;Python.psd_3d_zonal.executor&quot;: &quot;Run&quot;,
-    &quot;Python.simulation_parameters.executor&quot;: &quot;Run&quot;,
-    &quot;Python.v_zonal_cross_section.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/michal/PythonProjects/MOTIVE/scripts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.EUC.executor": "Run",
+    "Python.SST.executor": "Run",
+    "Python.find_lon_lat.executor": "Run",
+    "Python.psd_3d_zonal.executor": "Run",
+    "Python.simulation_parameters.executor": "Run",
+    "Python.v_zonal_cross_section.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE/scripts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scripts" />
@@ -60,7 +63,7 @@
       <recent name="$PROJECT_DIR$/parcels" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.psd_3d_zonal">
+  <component name="RunManager" selected="Python.SST">
     <configuration name="EUC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -78,6 +81,29 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/EUC.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SST" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOTIVE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/SST.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -112,9 +138,6 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -124,29 +147,6 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/psd_3d_zonal.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="simulation_parameters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MOTIVE" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation_parameters.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -177,19 +177,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.SST" />
       <item itemvalue="Python.v_zonal_cross_section" />
       <item itemvalue="Python.psd_3d_zonal" />
       <item itemvalue="Python.EUC" />
       <item itemvalue="Python.find_lon_lat" />
-      <item itemvalue="Python.simulation_parameters" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SST" />
         <item itemvalue="Python.psd_3d_zonal" />
         <item itemvalue="Python.v_zonal_cross_section" />
         <item itemvalue="Python.find_lon_lat" />
         <item itemvalue="Python.EUC" />
-        <item itemvalue="Python.simulation_parameters" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +219,7 @@
       <workItem from="1731994783700" duration="14217000" />
       <workItem from="1732141667939" duration="4818000" />
       <workItem from="1732176652819" duration="274000" />
-      <workItem from="1732343812006" duration="2941000" />
+      <workItem from="1732343812006" duration="4401000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -405,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732354746460</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="meridional velocity and longer psd">
+      <option name="closed" value="true" />
+      <created>1732354780916</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1732354780916</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +469,7 @@
     <SUITE FILE_PATH="coverage/MOTIVE$simulation_data.coverage" NAME="simulation_data Coverage Results" MODIFIED="1731474451177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$simulation_parameters.coverage" NAME="simulation_parameters Coverage Results" MODIFIED="1731907841102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$concatenate_files.coverage" NAME="concatenate_files Coverage Results" MODIFIED="1731637939776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/MOTIVE$SST.coverage" NAME="SST Coverage Results" MODIFIED="1732400961472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$get_ocean_time.coverage" NAME="get_ocean_time Coverage Results" MODIFIED="1731544873504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_3d.coverage" NAME="psd_3d Coverage Results" MODIFIED="1731721651029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_3d_zonal.coverage" NAME="psd_3d_zonal Coverage Results" MODIFIED="1732063941548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
