@@ -56,18 +56,20 @@ print('Check dimensions: ', len_eta_rho, len_xi_rho, sst.shape, vort.shape)
 
 print('Low passing...')
 sys.stdout.flush()
-sst = butter_sos2_filter(sst, filter_width=36, dt=1, axis=0, filter_order=6)
-vort = butter_sos2_filter(vort, filter_width=36, dt=1, axis=0, filter_order=6)
+sst = butter_sos2_filter(sst, filter_width=28, dt=1, axis=0, filter_order=6)
+vort = butter_sos2_filter(vort, filter_width=28, dt=1, axis=0, filter_order=6)
 
-ang_num = 1
+ang_num = 12
 print("Averaging over %d ..." % ang_num)
 sys.stdout.flush()
 n_chunks = sst.shape[0] // ang_num
-sst = sst[:n_chunks * ang_num, :, :]
-sst=sst.reshape(-1, ang_num, sst.shape[1], sst.shape[2]).mean(axis=1)
-vort = vort[:n_chunks * ang_num, :, :]
-vort=vort.reshape(-1, ang_num, vort.shape[1], vort.shape[2]).mean(axis=1)
+# sst = sst[:n_chunks * ang_num, :, :]
+# sst=sst.reshape(-1, ang_num, sst.shape[1], sst.shape[2]).mean(axis=1)
+# vort = vort[:n_chunks * ang_num, :, :]
+# vort=vort.reshape(-1, ang_num, vort.shape[1], vort.shape[2]).mean(axis=1)
 ocean_time = ocean_time[:n_chunks * ang_num][::ang_num]
+sst = sst[:n_chunks * ang_num][::ang_num]
+vort = vort[:n_chunks * ang_num][::ang_num]
 print('Check dimensions: ', sst.shape, vort.shape, ocean_time.shape)
 
 print('Saving SST & vort...')
