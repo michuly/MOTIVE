@@ -43,6 +43,29 @@ def Zeros(*args, **kwargs):
     return np.zeros(*args, **kwargs)
 
 
+#################################################
+# rho_eos (from rho_eos.F in romsucla)
+#################################################
+
+
+def rho_eos(T,S,z_r,z_w,rho0):
+
+    (rho) = toolsF.rho_eos(T,S,z_r,z_w,rho0)
+
+    return rho
+
+#################################################
+# rho_eos (from rho_eos.F in romsucla)
+#################################################
+
+
+def rho1_eos(T,S,z_r,z_w,rho0):
+
+    (rho1) = toolsF.rho1_eos(T,S,z_r,rho0)
+
+    return rho1
+
+
 #################################################################################
 # Compute all shear components on a rho-rho grid of the horizontal velocity fild
 #################################################################################
