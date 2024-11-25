@@ -40,6 +40,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     lon_ind = 788 # 140W
     lat_ind = 249 # 0N
     lat_ind_1N = 304 # 1N
+    lat_ind_2N = 360 # 2N
 
 elif socket.gethostname()=='Michals-MacBook-Pro.local':
     data_path = "/Users/michal/Data/MOTIVE/"
@@ -75,6 +76,7 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     lon_ind = 788 - min_xi_u # 140W
     lat_ind = 249 - min_eta_rho # 0N
     lat_ind_1N = 304 - min_eta_rho # 1N
+    lat_ind_2N = 360 # 2N
 
 
 tot_depths = np.array([-0, -1, -2, -4, -7, -10, -15, -20, -25, -30, -40, -50, -60, -70,

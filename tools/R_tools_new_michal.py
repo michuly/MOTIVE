@@ -271,7 +271,6 @@ def linear_interp(var, z_r, z_new):
                   var[X2.flatten(), Y2.flatten(), idx_down.flatten()] * weights_down / weights_norm
         var_interp = var_interp.reshape(x_size, y_size)
 
-
     return var_interp
 
 

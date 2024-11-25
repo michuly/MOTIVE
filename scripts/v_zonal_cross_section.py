@@ -12,7 +12,7 @@ min_num, max_num = 141743-24*1, 141743+24*1
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 depths = tot_depths
 ### save an empty psd file ###
-dst_path_v = os.path.join(data_path_his, "v_1N_daily_avg.nc")
+dst_path_v = os.path.join(data_path_his, "v_2N_daily_avg.nc")
 print('Saving v into data file:', dst_path_v)
 
 with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
@@ -47,12 +47,14 @@ for i in range(len(his_files)):
     dat_his.close()
     ind_time = ind_time + time_step
 
-print('Calculating gradient...')
+print('Calculating gradient and averages...')
 sys.stdout.flush()
 dvz = np.gradient(v,depths,axis=1)
 print('Check dimensions: ', lon_array.shape, len_xi_rho, v.shape)
 sys.stdout.flush()
 
+v = butter_sos2_filter(v, filter_width=24, dt=1, axis=0, filter_order=6)
+dvz = butter_sos2_filter(dvz, filter_width=24, dt=1, axis=0, filter_order=6)
 n_chunks = v.shape[0] // 24
 v = v[:n_chunks * 24, :, :]
 v=v.reshape(-1, 24, v.shape[1], v.shape[2]).mean(axis=1)

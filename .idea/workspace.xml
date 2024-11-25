@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="sst">
+    <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="sst and vort">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/imports_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/SST.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/SST.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/calc_density.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/calc_density.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_parameters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/R_tools_new_michal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/R_tools_new_michal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/concatenate_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/concatenate_files.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,9 @@
   "keyToString": {
     "Python.EUC.executor": "Run",
     "Python.SST.executor": "Run",
+    "Python.filter_data.executor": "Run",
     "Python.find_lon_lat.executor": "Run",
+    "Python.imports_file.executor": "Run",
     "Python.psd_3d_zonal.executor": "Run",
     "Python.simulation_parameters.executor": "Run",
     "Python.v_zonal_cross_section.executor": "Run",
@@ -67,30 +69,7 @@
       <recent name="$PROJECT_DIR$/parcels" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SST">
-    <configuration name="EUC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MOTIVE" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/EUC.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.find_lon_lat">
     <configuration name="SST" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -106,6 +85,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/SST.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="filter_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOTIVE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/filter_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,6 +139,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="imports_file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOTIVE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/imports_file.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="psd_3d_zonal" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOTIVE" />
       <option name="ENV_FILES" value="" />
@@ -157,43 +182,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="v_zonal_cross_section" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MOTIVE" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/v_zonal_cross_section.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.SST" />
-      <item itemvalue="Python.v_zonal_cross_section" />
+      <item itemvalue="Python.filter_data" />
+      <item itemvalue="Python.imports_file" />
       <item itemvalue="Python.psd_3d_zonal" />
-      <item itemvalue="Python.EUC" />
       <item itemvalue="Python.find_lon_lat" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.find_lon_lat" />
+        <item itemvalue="Python.filter_data" />
+        <item itemvalue="Python.imports_file" />
         <item itemvalue="Python.SST" />
         <item itemvalue="Python.psd_3d_zonal" />
-        <item itemvalue="Python.v_zonal_cross_section" />
-        <item itemvalue="Python.find_lon_lat" />
-        <item itemvalue="Python.EUC" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +225,7 @@
       <workItem from="1731994783700" duration="14217000" />
       <workItem from="1732141667939" duration="4818000" />
       <workItem from="1732176652819" duration="274000" />
-      <workItem from="1732343812006" duration="10952000" />
+      <workItem from="1732343812006" duration="16069000" />
     </task>
     <task id="LOCAL-00001" summary="psd 2d">
       <option name="closed" value="true" />
@@ -433,7 +435,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732401331307</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="sst and vort">
+      <option name="closed" value="true" />
+      <created>1732429681744</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1732429681745</updated>
+    </task>
+    <task id="LOCAL-00028" summary="sst and vort">
+      <option name="closed" value="true" />
+      <created>1732429927158</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732429927158</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +478,8 @@
     <MESSAGE value="meridional velocity" />
     <MESSAGE value="meridional velocity and longer psd" />
     <MESSAGE value="sst" />
-    <option name="LAST_COMMIT_MESSAGE" value="sst" />
+    <MESSAGE value="sst and vort" />
+    <option name="LAST_COMMIT_MESSAGE" value="sst and vort" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -485,6 +504,11 @@
           <line>33</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/imports_file.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -492,14 +516,16 @@
     <SUITE FILE_PATH="coverage/MOTIVE$get_file_list.coverage" NAME="get_file_list Coverage Results" MODIFIED="1731297984135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$v_zonal_cross_section.coverage" NAME="v_zonal_cross_section Coverage Results" MODIFIED="1732072900401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$Python_Console.coverage" NAME="Python Console Coverage Results" MODIFIED="1731471875790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MOTIVE$filter_data.coverage" NAME="filter_data Coverage Results" MODIFIED="1732430825832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$simulation_data.coverage" NAME="simulation_data Coverage Results" MODIFIED="1731474451177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$simulation_parameters.coverage" NAME="simulation_parameters Coverage Results" MODIFIED="1731907841102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$concatenate_files.coverage" NAME="concatenate_files Coverage Results" MODIFIED="1731637939776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$SST.coverage" NAME="SST Coverage Results" MODIFIED="1732400961472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$get_ocean_time.coverage" NAME="get_ocean_time Coverage Results" MODIFIED="1731544873504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/MOTIVE$imports_file.coverage" NAME="imports_file Coverage Results" MODIFIED="1732430629415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_3d.coverage" NAME="psd_3d Coverage Results" MODIFIED="1731721651029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_3d_zonal.coverage" NAME="psd_3d_zonal Coverage Results" MODIFIED="1732063941548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/MOTIVE$find_lon_lat.coverage" NAME="find_lon_lat Coverage Results" MODIFIED="1732070232809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/MOTIVE$find_lon_lat.coverage" NAME="find_lon_lat Coverage Results" MODIFIED="1732578357218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_2d.coverage" NAME="psd_2d Coverage Results" MODIFIED="1731559893393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$EUC.coverage" NAME="EUC Coverage Results" MODIFIED="1731907658613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/MOTIVE$psd_1d.coverage" NAME="psd_1d Coverage Results" MODIFIED="1731475095959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

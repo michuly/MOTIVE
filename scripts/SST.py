@@ -19,7 +19,7 @@ with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
         lon_array = dat_grd.variables['lon_rho'][lat_ind, min_xi_rho:max_xi_rho+1]
         lat_array = dat_grd.variables['lat_rho'][min_eta_rho:max_eta_rho+1, lon_ind]
     else:
-        lon_array = dat_grd.variables['lon_rho'][lat_ind_1N, :]
+        lon_array = dat_grd.variables['lon_rho'][lat_ind, :]
         lat_array = dat_grd.variables['lat_rho'][:, lon_ind]
 
 ### concatenate time to one series ###
