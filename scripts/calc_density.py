@@ -48,6 +48,7 @@ for i in range(len(his_files)):
 
         print('Uploading variables: temp and salinity from:', j, ind_time+j, his_ind)
         z_r, z_w = zlevs(grd, dat_his, itime=his_ind)
+        z_w=(z_w[:,:,1:]+z_w[:,:,:-1])/2
         print(z_r.shape, z_r[0,0,0], z_w.shape)
         sys.stdout.flush()
         if to_slice:  # Shape: time, depth, y, x?e
