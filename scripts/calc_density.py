@@ -42,13 +42,13 @@ ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
     his_file = his_files[i]
+    dat_his = Dataset(his_file, 'r')
     print('Uploading variables: temp and salinity  from:', i, ind_time, (ind_time + time_step), his_file)
     for j, his_ind  in enumerate(np.arange(dat_his.dimensions['time'].size)[::time_jump]):
 
-        print('Uploading variables: temp and salinity  from:', j, ind_time+j, his_ind)
+        print('Uploading variables: temp and salinity from:', j, ind_time+j, his_ind)
         z_r, z_w = zlevs(grd, dat_his, itime=his_ind)
         sys.stdout.flush()
-        dat_his = Dataset(his_file, 'r')
         if to_slice:  # Shape: time, depth, y, x?e
             temp = dat_his.variables['temp'][his_ind, :, lat_ind, min_xi_rho:max_xi_rho+1]
             salt = dat_his.variables['salt'][his_ind, :, lat_ind, min_xi_rho:max_xi_rho+1]
@@ -66,7 +66,7 @@ for i in range(len(his_files)):
         rho = linear_interp(rho.transpose()[:,np.newaxis,:], z_r, tot_depths)[:,0,:].transpose()
         rho_mat[ind_time+j, :, :] = rho
         ocean_time[ind_time+j] = dat_his.variables['ocean_time'][j]
-        dat_his.close()
+    dat_his.close()
     print('Check (j-1)==time_step: ', j, time_step)
     ind_time = ind_time + time_step
 
