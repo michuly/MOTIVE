@@ -25,7 +25,10 @@ def get_concatenate_parameters(min_num=0, max_num=0, pattern_his_file=pattern_hi
         print(dat_his.variables['u'].shape, dat_his.variables['v'].shape)
         # print(dat_his.variables['depth'][0])
         time_dim = dat_his.dimensions['time'].size
-        depths = dat_his.variables['depth'][:]
+        if 'depth' in dat_his.variables:
+            depths = dat_his.variables['depth'][:]
+        else:
+            depths = None
             # depths = depths[depths > -800]
 
     return his_files, depths, time_dim
