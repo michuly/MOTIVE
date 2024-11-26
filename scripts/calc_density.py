@@ -3,7 +3,7 @@ calculate density using Fortran tools
 """
 from simulation_parameters import *
 from imports_file import *
-from R_tools_new_michal import gridDict, zlevs, rho_eos, linear_interp
+from R_tools_new_michal import gridDict, zlevs, rho_eos
 
 """
 get two plots:
@@ -14,15 +14,15 @@ min_num, max_num = 141743-24*1, 141743+24*1
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file=pattern_his_sigma)
 depths = tot_depths
 ### save an empty psd file ###
-dst_path = os.path.join(data_path_his, "rho.nc")
+dst_path = os.path.join(data_path_his, "rho_2N.nc")
 print('Saving rho into data file:', dst_path)
 
 with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
     if to_slice:
-        lon_array = dat_grd.variables['lon_rho'][lat_ind_1N, min_xi_rho:max_xi_rho+1]
+        lon_array = dat_grd.variables['lon_rho'][lat_ind_2N, min_xi_rho:max_xi_rho+1]
         # lat_array = dat_grd.variables['lat_rho'][min_eta_rho:max_eta_rho+1, lon_ind]
     else:
-        lon_array = dat_grd.variables['lon_rho'][lat_ind_1N, :]
+        lon_array = dat_grd.variables['lon_rho'][lat_ind_2N, :]
         # lat_array = dat_grd.variables['lat_rho'][:, lon_ind]
 grd = gridDict(grd_path, grd_name, ij=None)
 
@@ -35,39 +35,39 @@ else:
 time_size = time_step * len(his_files)
 print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 ind_time = 0
-
 rho_mat = np.zeros((time_size, 88, len_xi_rho))
 rho_mat.fill(np.nan)
 ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
     his_file = his_files[i]
+    print('Uploading variables: temp and salinity  from:', i, ind_time, (ind_time + time_step), his_file)
+    for j, his_ind  in enumerate(np.arange(dat_his.dimensions['time'].size)[::time_jump]):
 
-    for j in range(dat_his.dimensions['time'].size):
-        print(i, end=" ")
-        z_r, z_w = zlevs(grd, dat_his, itime=j)
-
-        print('Uploading variables: temp and salinity  from:', i, ind_time, (ind_time+time_step), his_file)
+        print('Uploading variables: temp and salinity  from:', j, ind_time+j, his_ind)
+        z_r, z_w = zlevs(grd, dat_his, itime=his_ind)
         sys.stdout.flush()
         dat_his = Dataset(his_file, 'r')
         if to_slice:  # Shape: time, depth, y, x?e
-            temp = dat_his.variables['temp'][::time_jump, :, lat_ind, min_xi_rho:max_xi_rho+1]
-            slt = dat_his.variables['salt'][::time_jump, :, lat_ind, min_xi_rho:max_xi_rho+1]
+            temp = dat_his.variables['temp'][his_ind, :, lat_ind, min_xi_rho:max_xi_rho+1]
+            salt = dat_his.variables['salt'][his_ind, :, lat_ind, min_xi_rho:max_xi_rho+1]
         else:
-            temp = dat_his.variables['temp'][::time_jump, :, lat_ind, :]
-            slt = dat_his.variables['salt'][::time_jump, :, lat_ind, :]
+            temp = dat_his.variables['temp'][his_ind, :, lat_ind, :]
+            salt = dat_his.variables['salt'][his_ind, :, lat_ind, :]
 
 
         print('Calculating density...')
         sys.stdout.flush()
-        rho = rho_eos(T=temp, S=slt, z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
-        print('Inetpolating rho onto depths... Shapes:', rho.shape, rho.transpose().shape)
+        rho = rho_eos(T=temp, S=salt, z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
+        print('Mean and std rho:', rho.mean(), rho.std())
+        print('Inetpolating rho onto depths... Shapes:', rho.shape)
         sys.stdout.flush()
-        rho = linear_interp(rho.transpose(), z_r, tot_depths).transpose()
-        rho_mat[ind_time:(ind_time + time_step), :, :] = rho
-        ocean_time[ind_time:(ind_time+time_step)] = dat_his.variables['ocean_time'][:]
+        rho = linear_interp(rho.transpose()[:,np.newaxis,:], z_r, tot_depths)[:,0,:].transpose()
+        rho_mat[ind_time+j, :, :] = rho
+        ocean_time[ind_time+j] = dat_his.variables['ocean_time'][j]
         dat_his.close()
-        ind_time = ind_time + time_step
+    print('Check (j-1)==time_step: ', j, time_step)
+    ind_time = ind_time + time_step
 
 print('Check dimensions: ', lon_array.shape, len_xi_rho, rho.shape)
 sys.stdout.flush()
@@ -88,13 +88,10 @@ dat_dst.variables['depths'][:] = tot_depths
 dat_dst.createDimension('lon', len_xi_rho)
 dat_dst.createVariable('lon', np.dtype('float32').char, ('lon',))
 dat_dst.variables['lon'][:] = lon_array
-dat_dst.createDimension('lat', len_xi_rho)
-dat_dst.createVariable('lat', np.dtype('float32').char, ('lat',))
-dat_dst.variables['lat'][:] = lat_array
 dat_dst.createDimension('ocean_time', len(ocean_time))
 dat_dst.createVariable('ocean_time', np.dtype('float32').char, ('ocean_time',))
 dat_dst.variables['ocean_time'][:] = ocean_time
-dat_dst.createVariable('rho', np.dtype('float32').char, ('ocean_time','depths','lat','lon'))
+dat_dst.createVariable('rho', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['rho'][:] = rho
 dat_dst.close()
 print('DONE: saved rho to data file ', dst_path)
