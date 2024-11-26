@@ -5,7 +5,7 @@ import sys
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 from simulation_parameters import *
 from imports_file import *
-from R_tools_new_michal import gridDict, zlevs, rho_eos, rho_eos1
+from R_tools_new_michal import gridDict, zlevs, rho_eos, rho1_eos
 
 """
 get two plots:
@@ -61,7 +61,7 @@ for i in range(len(his_files)):
 
         print('Calculating density...')
         sys.stdout.flush()
-        rho = rho_eos1(T=temp, S=salt, z_r=z_r.transpose(), z_w=None, rho0=dat_his.rho0)
+        rho = rho1_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=None, rho0=dat_his.rho0)
         # rho = rho_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=z_w.transpose(), rho0=dat_his.rho0)
         print('Mean and std rho:', rho.mean(), rho.std())
         print('Inetpolating rho onto depths... Shapes:', rho.shape)
