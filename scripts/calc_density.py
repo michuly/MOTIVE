@@ -1,6 +1,8 @@
 """
 calculate density using Fortran tools
 """
+import sys
+sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 from simulation_parameters import *
 from imports_file import *
 from R_tools_new_michal import gridDict, zlevs, rho_eos
