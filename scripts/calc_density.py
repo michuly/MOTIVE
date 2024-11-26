@@ -48,22 +48,23 @@ for i in range(len(his_files)):
 
         print('Uploading variables: temp and salinity from:', j, ind_time+j, his_ind)
         z_r, z_w = zlevs(grd, dat_his, itime=his_ind)
-        print(z_r.shape, z_r[0,0,0])
+        print(z_r.shape, z_r[0,0,0], z_w.shape)
         sys.stdout.flush()
         if to_slice:  # Shape: time, depth, y, x?e
-            temp = dat_his.variables['temp'][his_ind, :, lat_ind, min_xi_rho:max_xi_rho+1]
-            salt = dat_his.variables['salt'][his_ind, :, lat_ind, min_xi_rho:max_xi_rho+1]
+            temp = dat_his.variables['temp'][his_ind, :, :, min_xi_rho:max_xi_rho+1]
+            salt = dat_his.variables['salt'][his_ind, :, :, min_xi_rho:max_xi_rho+1]
         else:
-            temp = dat_his.variables['temp'][his_ind, :, lat_ind, :]
-            salt = dat_his.variables['salt'][his_ind, :, lat_ind, :]
+            temp = dat_his.variables['temp'][his_ind, :, :, :]
+            salt = dat_his.variables['salt'][his_ind, :, :, :]
+        print(salt.shape, temp.shape)
 
         print('Calculating density...')
         sys.stdout.flush()
-        rho = rho_eos(T=temp, S=salt, z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
+        rho = rho_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=z_w.transpose(), rho0=dat_his.rho0)
         print('Mean and std rho:', rho.mean(), rho.std())
         print('Inetpolating rho onto depths... Shapes:', rho.shape)
         sys.stdout.flush()
-        rho = linear_interp(rho.transpose()[:,np.newaxis,:], z_r, tot_depths)[:,0,:].transpose()
+        rho = linear_interp(rho.transpose(), z_r, tot_depths).transpose()
         rho_mat[ind_time+j, :, :] = rho
         ocean_time[ind_time+j] = dat_his.variables['ocean_time'][j]
     dat_his.close()
