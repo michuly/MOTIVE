@@ -15,7 +15,7 @@ def linear_interp(var, z_r, z_new):
     X2, Y2 = np.meshgrid(np.arange(x_size), np.arange(y_size), indexing='ij')
 
     # calculate the distance between z_r and z_new
-    dz = z_r - z_new[:, :, np.newaxis]
+    dz = z_r - z_new
     dz_up = dz.copy()
     dz_up[dz_up < 0] = 9999.
     idx_up = np.argmin(dz_up, axis=2)
