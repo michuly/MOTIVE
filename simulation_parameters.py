@@ -14,6 +14,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     grd_name = "Epac2km_grd.nc"
     pattern_his = "z_EPAC2km_his.*.nc"
     pattern_his_sigma = "EPAC2km_his.*.nc"
+    pattern_his_2N = "EPAC2km_his_2N.*.nc"
     data_path_psd = "/southern/michalshaham/Data/MOTIVE/psd"
     data_path_his = "/southern/michalshaham/Data/MOTIVE/his"
     min_num, max_num = 141095, 143111
@@ -49,6 +50,7 @@ elif socket.gethostname()=='Michals-MacBook-Pro.local':
     grd_name = "Epac2km_grd_lon_lat_sampled.nc"
     pattern_his = "z_EPAC2km_vel.*.nc"
     pattern_his_sigma = "EPAC2km_vel.*.nc"
+    pattern_his_2N = "EPAC2km_vel_2N.*.nc"
     pattern_his_1t = "z_EPAC2km_vel_1t.*.nc"
     data_path_psd = "/Users/michal/Data/MOTIVE/psd"
     data_path_his = "/Users/michal/Data/MOTIVE/his"
