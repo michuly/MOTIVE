@@ -20,12 +20,12 @@ his_files, _, time_dim = get_concatenate_parameters(min_num, max_num, pattern_hi
 grd = gridDict(grd_path, grd_name_2N, ij=None)
 
 ### create new rho variable in netcdf ###
-with (Dataset(his_files[0], 'a') as dat_his):
-    if 'rho' not in his_files[0].variables.keys():
+with Dataset(his_files[0], 'a') as dat_his:
+    if 'rho' not in dat_his.variables.keys():
         dat_his.createVariable('rho', np.dtype('float32').char, ('time', 's_rho', 'eta_rho', 'xi_rho'))
 
 for his_file in his_files:
-    dat_his = Dataset(his_file, 'r')
+    dat_his = Dataset(his_file, 'a')
     for i in range(dat_his.dimensions['time'].size):
 
         print('Uploading variables: temp and salinity from:', i, his_file)
@@ -38,8 +38,8 @@ for his_file in his_files:
 
         print('Calculating density...')
         sys.stdout.flush()
-        # rho = rho1_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=None, rho0=dat_his.rho0)
-        rho = rho_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=z_w.transpose(), rho0=dat_his.rho0)
+        rho = rho1_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=None, rho0=dat_his.rho0)
+        # rho = rho_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=z_w.transpose(), rho0=dat_his.rho0)
         print('Mean and std rho:', rho.mean(), rho.std())
         sys.stdout.flush()
         dat_his.variables['rho'][i,:,:,:] = rho
