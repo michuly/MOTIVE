@@ -15,7 +15,7 @@ dimensions:
 	xi_rho = 2002 ;
 """
 ### get history file names
-min_num, max_num = 141743-24*40, 141743+24*1
+min_num, max_num = 141743-24*40, 141743+24*40
 his_files, _, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file=pattern_his_2N)
 grd = gridDict(grd_path, grd_name_2N, ij=None)
 

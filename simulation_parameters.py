@@ -8,6 +8,8 @@ lon index for -140.000000: 778
 lat index for 0.000000: 249
 """
 
+rho0 = 1027.4
+
 if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il':
     data_path = "/southern/rbarkan/data/EPAC2km/OUTPUT/HIS/"
     grd_path = "/southern/rbarkan/data/EPAC2km/"
