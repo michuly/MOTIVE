@@ -15,13 +15,14 @@ dimensions:
 	xi_rho = 2002 ;
 """
 ### get history file names
-min_num, max_num = 141743-24*1, 141743+24*1
+min_num, max_num = 141743-24*40, 141743+24*1
 his_files, _, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file=pattern_his_2N)
-grd = gridDict(grd_path, grd_name, ij=None)
+grd = gridDict(grd_path, grd_name_2N, ij=None)
 
 ### create new rho variable in netcdf ###
-with Dataset(his_files[0], 'a') as dat_his:
-    dat_his.createVariable('rho', np.dtype('float32').char, ('time', 's_rho', 'eta_rho', 'xi_rho'))
+with (Dataset(his_files[0], 'a') as dat_his):
+    if 'rho' not in his_files[0].variables.keys():
+        dat_his.createVariable('rho', np.dtype('float32').char, ('time', 's_rho', 'eta_rho', 'xi_rho'))
 
 for his_file in his_files:
     dat_his = Dataset(his_file, 'r')

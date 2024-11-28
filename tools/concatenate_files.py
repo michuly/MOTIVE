@@ -22,7 +22,7 @@ def get_concatenate_parameters(min_num=0, max_num=0, pattern_his_file=pattern_hi
         # print(dat_his.variables['u'][:, 0, :, :].mean(), dat_his.variables['u'][:, -1, :, :].mean())
         print("What are the shapes:")
         print(len_xi_rho, len_xi_u, len_eta_rho, len_eta_v)
-        print(dat_his.variables['u'].shape, dat_his.variables['v'].shape)
+        # print(dat_his.variables['u'].shape, dat_his.variables['v'].shape)
         # print(dat_his.variables['depth'][0])
         time_dim = dat_his.dimensions['time'].size
         if 'depth' in dat_his.variables:

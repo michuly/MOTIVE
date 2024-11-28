@@ -12,6 +12,7 @@ if socket.gethostname()=='southern' or socket.gethostname()=='atlantic.tau.ac.il
     data_path = "/southern/rbarkan/data/EPAC2km/OUTPUT/HIS/"
     grd_path = "/southern/rbarkan/data/EPAC2km/"
     grd_name = "Epac2km_grd.nc"
+    grd_name_2N = "Epac2km_grd_2N.nc"
     pattern_his = "z_EPAC2km_his.*.nc"
     pattern_his_sigma = "EPAC2km_his.*.nc"
     pattern_his_2N = "EPAC2km_his_2N.*.nc"
