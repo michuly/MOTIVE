@@ -6,7 +6,7 @@ from imports_file import *
 
 ### get history file names
 min_num, max_num = 141743-24*1, 141743+24*1
-his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
+his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file=pattern_his_2N)
 depths = tot_depths
 ### save an empty psd file ###
 dst_path_w = os.path.join(data_path_his, "w_prime.nc")
@@ -14,9 +14,9 @@ print('Saving w into data file:', dst_path_w)
 
 with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
     if to_slice:
-        lon_array = dat_grd.variables['lon_rho'][lat_ind_1N, min_xi_rho:max_xi_rho+1]
+        lon_array = dat_grd.variables['lon_rho'][lat_ind_2N, min_xi_rho:max_xi_rho+1]
     else:
-        lon_array = dat_grd.variables['lon_rho'][lat_ind_1N, :]
+        lon_array = dat_grd.variables['lon_rho'][lat_ind_2N, :]
 
 ### concatenate time to one series ###
 time_jump = 1
@@ -37,16 +37,16 @@ for i in range(len(his_files)):
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
     if to_slice:  # Shape: time, depth, y, x?e
-        w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, lat_ind_1N, min_xi_rho:max_xi_rho+1]
+        w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, min_xi_rho:max_xi_rho+1]
     else:
-        w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, lat_ind_1N, :]
+        w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, :]
     ocean_time[ind_time:(ind_time+time_step)] = dat_his.variables['ocean_time'][:]
     dat_his.close()
     ind_time = ind_time + time_step
 
 print('Calculating gradient and averages...')
 sys.stdout.flush()
-w_baro=np.mean(w, axes=1)
+w_baro=np.mean(w, axis=1)
 print('Check dimensions: ', lon_array.shape, len_xi_rho, w.shape, w_baro.shape)
 sys.stdout.flush()
 

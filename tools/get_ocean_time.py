@@ -28,7 +28,7 @@ print("Elapsed hours:", result/3600)
 
 
 # Example usage:
-seconds_elapsed = 143111*3600  # Replace with your actual number of seconds
+seconds_elapsed = 142343*3600  # Replace with your actual number of seconds
 result = seconds_to_datetime(seconds_elapsed)
 
 print("Elapsed Seconds:", seconds_elapsed)
