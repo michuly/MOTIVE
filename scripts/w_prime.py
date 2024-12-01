@@ -61,18 +61,18 @@ w[np.isnan(w)]=0
 # rho1[np.isnan(rho1)]=0
 w_baro[np.isnan(w_baro)]=0
 w = w - w_baro[:,np.newaxis,:]
-w = w - butter_sos2_filter(w, filter_width=24*15, dt=1, axis=0, filter_order=6)
+# w = w - butter_sos2_filter(w, filter_width=24*15, dt=1, axis=0, filter_order=6)
 
 print('Calculating averages...')
 sys.stdout.flush()
-w = butter_sos2_filter(w, filter_width=24, dt=1, axis=0, filter_order=6)
-rho1 = butter_sos2_filter(rho1, filter_width=24, dt=1, axis=0, filter_order=6)
-n_chunks = w.shape[0] // 24
-w = w[:n_chunks * 24, :, :]
-w=w.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
-rho1 = rho1[:n_chunks * 24, :, :]
-rho1=rho1.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
-ocean_time = ocean_time[:n_chunks * 24][::24]
+# w = butter_sos2_filter(w, filter_width=24, dt=1, axis=0, filter_order=6)
+# rho1 = butter_sos2_filter(rho1, filter_width=24, dt=1, axis=0, filter_order=6)
+# n_chunks = w.shape[0] // 24
+# w = w[:n_chunks * 24, :, :]
+# w=w.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
+# rho1 = rho1[:n_chunks * 24, :, :]
+# rho1=rho1.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
+# ocean_time = ocean_time[:n_chunks * 24][::24]
 print('Check dimensions: ', w.shape, rho1.shape, ocean_time.shape)
 
 
