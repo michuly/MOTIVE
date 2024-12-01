@@ -6,7 +6,7 @@ from simulation_parameters import *
 from imports_file import *
 
 ### get history file names
-min_num, max_num = 141035, 141100
+min_num, max_num = 141035, 143111
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="z_sampled_EPAC2km_his.*.nc")
 depths = tot_depths
 ### save an empty psd file ###
