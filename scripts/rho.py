@@ -44,8 +44,8 @@ for his_file in his_files:
 
         print('Calculating density...')
         sys.stdout.flush()
-        rho = rho1_eos(T=Forder(temp), S=Forder(salt), z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
-        # rho = rho_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=z_w.transpose(), rho0=dat_his.rho0)
+        # rho = rho1_eos(T=Forder(temp), S=Forder(salt), z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
+        rho = rho_eos(T=Forder(temp), S=Forder(salt), z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
         print('Mean and std rho:', rho.mean(), rho.std())
         print('Check dimensions:', Forder(rho).shape, rho.transpose().shape, rho.shape, dat_his.variables['rho'][i,:,:,:].shape)
         sys.stdout.flush()
