@@ -60,7 +60,8 @@ sys.stdout.flush()
 w[np.isnan(w)]=0
 rho1[np.isnan(rho1)]=0
 w_baro[np.isnan(w_baro)]=0
-w = w-butter_sos2_filter(w, filter_width=24*15, dt=1, axis=0, filter_order=6)-w_baro[:,np.newaxis,:]
+w = w - w_baro[:,np.newaxis,:]
+w = w - butter_sos2_filter(w, filter_width=24*15, dt=1, axis=0, filter_order=6)
 
 print('Calculating averages...')
 sys.stdout.flush()
