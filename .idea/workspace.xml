@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="density">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/w_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/w_prime.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,15 +226,7 @@
       <workItem from="1732141667939" duration="4818000" />
       <workItem from="1732176652819" duration="274000" />
       <workItem from="1732343812006" duration="32115000" />
-      <workItem from="1732923111879" duration="8481000" />
-    </task>
-    <task id="LOCAL-00005" summary="psd 3d">
-      <option name="closed" value="true" />
-      <created>1731721999006</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1731721999006</updated>
+      <workItem from="1732923111879" duration="8836000" />
     </task>
     <task id="LOCAL-00006" summary="psd 3d">
       <option name="closed" value="true" />
@@ -619,7 +612,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733028300858</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="density">
+      <option name="closed" value="true" />
+      <created>1733029163134</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1733029163134</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
