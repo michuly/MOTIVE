@@ -72,7 +72,7 @@ w = w[:n_chunks * 24, :, :]
 w=w.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
 # rho1 = rho1[:n_chunks * 24, :, :]
 # rho1=rho1.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
-# ocean_time = ocean_time[:n_chunks * 24][::24]
+ocean_time = ocean_time[:n_chunks * 24][::24]
 print('Check dimensions: ', w.shape, rho1.shape, ocean_time.shape)
 
 
