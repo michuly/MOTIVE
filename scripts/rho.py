@@ -43,11 +43,11 @@ for his_file in his_files:
         sys.stdout.flush()
         temp = dat_his.variables['temp'][i, :, :, :]
         salt = dat_his.variables['salt'][i, :, :, :]
-        print("Check dimensions: ", salt.shape, temp.shape)
+        print("Check dimensions: ", temp.shape, Forder(temp).shape, z_r.shape, z_w.shape)
 
         print('Calculating density...')
         sys.stdout.flush()
-        rho = rho1_eos(T=Forder(temp), S=Forder(salt), z_r=z_r, z_w=z_w, rho0=Forder(dat_his.rho0))
+        rho = rho1_eos(T=Forder(temp), S=Forder(salt), z_r=z_r, z_w=z_w, rho0=dat_his.rho0)
         # rho = rho_eos(T=temp, S=salt, z_r=z_r.transpose(), z_w=z_w.transpose(), rho0=dat_his.rho0)
         print('Mean and std rho:', rho.mean(), rho.std())
         sys.stdout.flush()
