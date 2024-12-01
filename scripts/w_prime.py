@@ -6,11 +6,11 @@ from simulation_parameters import *
 from imports_file import *
 
 ### get history file names
-min_num, max_num = 141743-24*100, 141743+24*100
+min_num, max_num = 141035, 143111
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="z_sampled_EPAC2km_his.*.nc")
 depths = tot_depths
 ### save an empty psd file ###
-dst_path_w = os.path.join(data_path_his, "w_prime.nc")
+dst_path_w = os.path.join(data_path_his, "w_prime_24LP.nc")
 print('Saving w into data file:', dst_path_w)
 
 with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
@@ -49,13 +49,26 @@ for i in range(len(his_files)):
     dat_his.close()
     ind_time = ind_time + time_step
 
-print('Calculating gradient and averages...')
+print('Calculating averages...')
 sys.stdout.flush()
 w_baro=np.mean(w, axis=1)
 print('Check dimensions: ', lon_array.shape, len_xi_rho, w.shape, w_baro.shape)
 sys.stdout.flush()
 
 w = w-butter_sos2_filter(w, filter_width=24*15, dt=1, axis=0, filter_order=6)-w_baro[:,np.newaxis,:]
+
+print('Calculating averages...')
+sys.stdout.flush()
+w = butter_sos2_filter(w, filter_width=24, dt=1, axis=0, filter_order=6)
+rho1 = butter_sos2_filter(rho1, filter_width=24, dt=1, axis=0, filter_order=6)
+n_chunks = w.shape[0] // 24
+w = w[:n_chunks * 24, :, :]
+w=w.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
+rho1 = rho1[:n_chunks * 24, :, :]
+rho1=rho1.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
+ocean_time = ocean_time[:n_chunks * 24][::24]
+print('Check dimensions: ', w.shape, rho1.shape, ocean_time.shape)
+
 
 print('Saving 1N vertical velocity...')
 sys.stdout.flush()
