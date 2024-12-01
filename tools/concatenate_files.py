@@ -6,6 +6,7 @@ import numpy as np
 # from R_tools_new_michal import zlevs, gridDict, Forder
 def get_concatenate_parameters(min_num=0, max_num=0, pattern_his_file=pattern_his):
     ### get history file names ###
+    print(pattern_his_file)
     nums, his_files = get_file_list(data_path, pattern_his_file, num_len=6)
     print('Maximum and Minimum time of file found: ', np.min(nums), np.max(nums))
     print('Looking for numbers: ', min_num, max_num)

@@ -1,11 +1,12 @@
 """
-calculate w' - frequency higher than 15days(?) and remove barotropic w (depth averaged_
+calculate w' - frequency higher than 15days(?) and remove barotropic w (depth averaged)
+and adds density
 """
 from simulation_parameters import *
 from imports_file import *
 
 ### get history file names
-min_num, max_num = 141743-24*1, 141743+24*1
+min_num, max_num = 141743-24*100, 141743+24*100
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file=pattern_his_2N)
 depths = tot_depths
 ### save an empty psd file ###
@@ -29,6 +30,8 @@ print("Time parameters: ", time_size, time_dim, time_step, time_jump)
 ind_time = 0
 w = np.zeros((time_size, 88, len_xi_rho))
 w.fill(np.nan)
+rho1 = np.zeros((time_size, 88, len_xi_rho))
+rho1.fill(np.nan)
 ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
@@ -38,8 +41,10 @@ for i in range(len(his_files)):
     dat_his = Dataset(his_file, 'r')
     if to_slice:  # Shape: time, depth, y, x?e
         w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, min_xi_rho:max_xi_rho+1]
+        rho1[ind_time:(ind_time + time_step), :, :] = dat_his.variables['rho'][::time_jump, :, 20, min_xi_rho:max_xi_rho+1]
     else:
         w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, :]
+        rho1[ind_time:(ind_time + time_step), :, :] = dat_his.variables['rho'][::time_jump, :, 20, :]
     ocean_time[ind_time:(ind_time+time_step)] = dat_his.variables['ocean_time'][:]
     dat_his.close()
     ind_time = ind_time + time_step
@@ -65,8 +70,10 @@ dat_dst.variables['lon'][:] = lon_array
 dat_dst.createDimension('ocean_time', len(ocean_time))
 dat_dst.createVariable('ocean_time', np.dtype('float32').char, ('ocean_time',))
 dat_dst.variables['ocean_time'][:] = ocean_time
-dat_dst.createVariable('v', np.dtype('float32').char, ('ocean_time','depths','lon'))
+dat_dst.createVariable('w', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['w'][:] = w
+dat_dst.createVariable('rho1', np.dtype('float32').char, ('ocean_time','depths','lon'))
+dat_dst.variables['rho1'][:] = rho1
 dat_dst.close()
 print('DONE: saved w to data file ', dst_path_w)
 sys.stdout.flush()

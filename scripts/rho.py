@@ -21,7 +21,7 @@ if len(sys.argv) > 1:
     print('the depth is: ', min_num)
 else:
     min_num, max_num = 141743-24*40, 141743+24*40
-his_files, _, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="sampled_EPAC2km_his.*:.nc")
+his_files, _, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="sampled_EPAC2km_his.*.nc")
 grd = gridDict(grd_path, grd_name_2N, ij=None)
 
 ### create new rho variable in netcdf ###
