@@ -6,7 +6,7 @@ from simulation_parameters import *
 from imports_file import *
 
 ### get history file names
-min_num, max_num = 141035, 143111
+min_num, max_num = 141035, 141600
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="z_sampled_EPAC2km_his.*.nc")
 depths = tot_depths
 ### save an empty psd file ###
@@ -59,8 +59,8 @@ w = w-butter_sos2_filter(w, filter_width=24*15, dt=1, axis=0, filter_order=6)-w_
 
 print('Calculating averages...')
 sys.stdout.flush()
-w = butter_sos2_filter(w, filter_width=24, dt=1, axis=0, filter_order=6)
-rho1 = butter_sos2_filter(rho1, filter_width=24, dt=1, axis=0, filter_order=6)
+# w = butter_sos2_filter(w, filter_width=24, dt=1, axis=0, filter_order=6)
+# rho1 = butter_sos2_filter(rho1, filter_width=24, dt=1, axis=0, filter_order=6)
 n_chunks = w.shape[0] // 24
 w = w[:n_chunks * 24, :, :]
 w=w.reshape(-1, 24, w.shape[1], w.shape[2]).mean(axis=1)
