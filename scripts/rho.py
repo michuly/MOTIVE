@@ -3,13 +3,10 @@ calculate density using Fortran tools
 """
 import sys
 
-from old_tools.R_tools_new_goth import Forder
-from old_tools.R_tools_new_goth_nautilus import Forder
-
 sys.path.append('/analysis/michalshaham/CrocoTools/Python_Kau/')
 from simulation_parameters import *
 from imports_file import *
-from R_tools_new_michal import gridDict, zlevs, rho_eos, rho1_eos
+from R_tools_new_michal import gridDict, zlevs, rho_eos, rho1_eos, Forder
 
 """
 dimensions:
