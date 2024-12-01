@@ -52,6 +52,7 @@ for i in range(len(his_files)):
 print('Calculating averages...')
 sys.stdout.flush()
 w_baro=np.mean(w, axis=1)
+print(w_baro.mean(), np.std(w_baro),w.mean(), np.std(w))
 print('Check dimensions: ', lon_array.shape, len_xi_rho, w.shape, w_baro.shape)
 sys.stdout.flush()
 
