@@ -53,8 +53,7 @@ def calculate_psd(velocity_u, velocity_v, dt):
 
     dat_dst.close()
 
-    return psd_ccw, psd_cw, frequencies
-
+    print('Done. saved to ', dst_path)
 
 def plot_psd(frequencies, psd_ccw, psd_cw, z_idx, y_idx, x_idx):
     """
@@ -98,8 +97,8 @@ if __name__ == "__main__":
     1. u at 0N 140W, depth vs. time
     2. u at 104W, temporal average, detph vs. latitude"""
     ### get history file names
-    min_num, max_num = 141743 - 24 * 1, 141743 + 24 * 1
-    # min_num, max_num = 141035, 143111
+    # min_num, max_num = 141743 - 24 * 1, 141743 + 24 * 1
+    min_num, max_num = 141035, 143111
     his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
     depths = tot_depths
     ### save an empty psd file ###
