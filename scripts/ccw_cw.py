@@ -1,3 +1,4 @@
+import numpy as np
 from scipy.fft import fft, fftfreq
 from simulation_parameters import *
 from imports_file import *
@@ -22,7 +23,10 @@ def calculate_psd(velocity_u, velocity_v, dt):
     t_dim, z_dim, y_dim = velocity_u.shape
 
     # Combine u and v into a complex velocity field
-    complex_velocity = velocity_u + 1j * velocity_v
+    velocity_u[np.abs(velocity_u) > 1e9] = np.nan
+    velocity_v[np.abs(velocity_v) > 1e9] = np.nan
+    complex_velocity = (velocity_u - np.nanmean(velocity_u, axis=0)[np.newaxis,:,:]) + 1j * (velocity_v - np.nanmean(velocity_v, axis=0)[np.newaxis,:,:])
+    complex_velocity[np.isnan(complex_velocity)]=0
 
     # Frequency array
     frequencies = fftfreq(t_dim, dt)[:t_dim // 2]
@@ -31,7 +35,7 @@ def calculate_psd(velocity_u, velocity_v, dt):
     sys.stdout.flush()
     fft_values = fft(complex_velocity, axis=0)/t_dim
 
-    dst_path = os.path.join(data_path_psd, "psd_ccw_cw.nc")
+    dst_path = os.path.join(data_path_psd, "psd_ccw_cw_no_mean.nc")
     print('Saving PSD into data file:', dst_path)
     dat_dst = Dataset(dst_path, 'w')
     dat_dst.createDimension('depths', len(tot_depths))
