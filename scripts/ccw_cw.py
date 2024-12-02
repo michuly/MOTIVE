@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
     with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
         print('Options: ', dat_grd.variables.keys())
-        lat_array = dat_grd.variables['lat_rho'][:, lon_ind]
+        lat_array = dat_grd.variables['lat_psi'][:, lon_ind]
 
     ### concatenate time to one series ###
     time_step = time_dim
