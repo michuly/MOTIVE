@@ -43,13 +43,13 @@ def calculate_psd(velocity_u, velocity_v, dt):
     dat_dst.createDimension('lat', len(lat_array))
     dat_dst.createVariable('lat', np.dtype('float32').char, ('lat',))
     dat_dst.variables['lat'][:] = lat_array
-    dat_dst.createVariable('ccw', np.dtype('float32').char, ('freq', 'depths', 'lat'))
-    dat_dst.createVariable('cw', np.dtype('float32').char, ('freq', 'depths', 'lat'))
+    dat_dst.createVariable('psd_ccw', np.dtype('float32').char, ('freq', 'depths', 'lat'))
+    dat_dst.createVariable('psd_cw', np.dtype('float32').char, ('freq', 'depths', 'lat'))
 
     print('Check dimensions: ', tot_depths.shape, lat_array.shape, frequencies.shape, fft_values.shape)
     sys.stdout.flush()
-    psd_ccw[:] = np.abs(fft_values[:t_dim // 2,:,:]) ** 2
-    psd_cw[:] = np.abs(fft_values[-(t_dim // 2):,:,:]) ** 2
+    dat_dst.variables['psd_ccw'][:] = np.abs(fft_values[:t_dim // 2,:,:]) ** 2
+    dat_dst.variables['psd_cw'][:] = np.abs(fft_values[-(t_dim // 2):,:,:]) ** 2
 
     dat_dst.close()
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     1. u at 0N 140W, depth vs. time
     2. u at 104W, temporal average, detph vs. latitude"""
     ### get history file names
-    min_num, max_num = 141743 - 24 * 10, 141743 + 24 * 10
+    min_num, max_num = 141743 - 24 * 1, 141743 + 24 * 1
     # min_num, max_num = 141035, 143111
     his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
     depths = tot_depths
