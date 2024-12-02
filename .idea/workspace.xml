@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133dfe88-30b4-4cc6-8b56-d820cddfa60f" name="Default Changelist" comment="density">
-      <change beforePath="$PROJECT_DIR$/scripts/w_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/w_prime.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ccw_cw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,28 +33,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.EUC.executor": "Run",
-    "Python.SST.executor": "Run",
-    "Python.filter_data.executor": "Run",
-    "Python.find_lon_lat.executor": "Debug",
-    "Python.get_ocean_time.executor": "Run",
-    "Python.imports_file.executor": "Run",
-    "Python.psd_3d_zonal.executor": "Run",
-    "Python.rho.executor": "Run",
-    "Python.simulation_parameters.executor": "Run",
-    "Python.v_zonal_cross_section.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/michal/PythonProjects/MOTIVE/scripts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.EUC.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.filter_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.find_lon_lat.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.get_ocean_time.executor&quot;: &quot;Run&quot;,
+    &quot;Python.imports_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.psd_3d_zonal.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rho.executor&quot;: &quot;Run&quot;,
+    &quot;Python.simulation_parameters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.v_zonal_cross_section.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michal/PythonProjects/MOTIVE/scripts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scripts" />
@@ -225,23 +226,8 @@
       <workItem from="1732141667939" duration="4818000" />
       <workItem from="1732176652819" duration="274000" />
       <workItem from="1732343812006" duration="32115000" />
-      <workItem from="1732923111879" duration="11013000" />
-    </task>
-    <task id="LOCAL-00016" summary="EUC">
-      <option name="closed" value="true" />
-      <created>1731991480329</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1731991480329</updated>
-    </task>
-    <task id="LOCAL-00017" summary="EUC">
-      <option name="closed" value="true" />
-      <created>1732009486664</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1732009486664</updated>
+      <workItem from="1732923111879" duration="11459000" />
+      <workItem from="1733096407222" duration="3845000" />
     </task>
     <task id="LOCAL-00018" summary="test psd zonal">
       <option name="closed" value="true" />
@@ -619,7 +605,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733045504942</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="density">
+      <option name="closed" value="true" />
+      <created>1733045759127</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1733045759127</updated>
+    </task>
+    <task id="LOCAL-00066" summary="density">
+      <option name="closed" value="true" />
+      <created>1733046310887</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1733046310888</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,6 +680,11 @@
           <url>file://$PROJECT_DIR$/imports_file.py</url>
           <line>12</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ccw_cw.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
