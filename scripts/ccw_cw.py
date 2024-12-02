@@ -105,7 +105,8 @@ if __name__ == "__main__":
     ### save an empty psd file ###
 
     with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
-        lat_array = dat_grd.variables['lat_v'][:, lon_ind]
+        print('Options: ', dat_grd.variables.keys())
+        lat_array = dat_grd.variables['lat_rho'][:, lon_ind]
 
     ### concatenate time to one series ###
     time_step = time_dim
@@ -124,7 +125,7 @@ if __name__ == "__main__":
         sys.stdout.flush()
         dat_his = Dataset(his_file, 'r')
         v_tmp = dat_his.variables['v'][:, :, :, lon_ind]
-        print('Check dimensions: ', v_tmp.shape, len_eta_v, v.shape, u.shape)
+        print('Check dimensions: ', tot_depths.shape, ocean_time.shape, lat_array.shape, v_tmp.shape, len_eta_v, v.shape, u.shape)
         sys.stdout.flush()
         v[ind_time:(ind_time + time_step), :, :] = 0.5 * (v_tmp[:, :, 1:] + v_tmp[:, :, -1:])
         u[ind_time:(ind_time + time_step), :, :] = dat_his.variables['u'][:, :, :, lon_ind]
