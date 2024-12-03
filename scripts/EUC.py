@@ -48,7 +48,7 @@ for i in range(len(his_files)):
     dat_his.close()
     ind_time = ind_time + time_step
 
-print('Check dimensions: ', lat_rho.shape, lat_psi.shape, u_tavg.shape, u_0_140.shape)
+print('Check dimensions: ', lat_rho.shape, lat_psi.shape, u_tavg.shape, v_tavg.shape, u_0_140.shape)
 
 print('Saving time average zonal velocity...')
 # if not os.path.exists(dst_path):
