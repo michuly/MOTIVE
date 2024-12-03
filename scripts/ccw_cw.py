@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
     # Calculate PSD
     sys.stdout.flush()
-    psd_ccw, psd_cw, frequencies = calculate_psd(u, v, dt=1)
+    calculate_psd(u, v, dt=1)
 
     # Plot PSD at a specific depth and spatial location
     plot_psd(frequencies, psd_ccw, psd_cw)

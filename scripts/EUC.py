@@ -59,11 +59,11 @@ dat_dst.createVariable('lat_rho', np.dtype('float32').char, ('lat_rho',))
 dat_dst.variables['lat_rho'][:] = lat_rho
 dat_dst.createDimension('lat_psi', len(lat_psi))
 dat_dst.createVariable('lat_psi', np.dtype('float32').char, ('lat_psi',))
-dat_dst.variables['lat_psi'][:] = lat_rho
+dat_dst.variables['lat_psi'][:] = lat_psi
 dat_dst.createVariable('u', np.dtype('float32').char, ('depths','lat_rho'))
 dat_dst.variables['u'][:] = u_tavg.mean(axis=0)
 dat_dst.createVariable('v', np.dtype('float32').char, ('depths','lat_psi'))
-dat_dst.variables['v'][:] = u_tavg.mean(axis=0)
+dat_dst.variables['v'][:] = v_tavg.mean(axis=0)
 dat_dst.close()
 print('DONE: saved u to data file ', dst_path_tavg)
 
