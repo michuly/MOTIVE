@@ -6,8 +6,8 @@ get two plots:
 1. u at 0N 140W, depth vs. time
 2. u at 104W, temporal average, detph vs. latitude"""
 ### get history file names
-his_files, tot_depths, time_dim = get_concatenate_parameters(min_num=0, max_num=0)
-his_files, tot_depths, time_dim = get_concatenate_parameters(min_num=141035, max_num=141050)
+# his_files, tot_depths, time_dim = get_concatenate_parameters(min_num=0, max_num=0)
+his_files, tot_depths, time_dim = get_concatenate_parameters(min_num=141035, max_num=141060)
 depths = tot_depths
 ### save an empty psd file ###
 dst_path_tavg = os.path.join(data_path_his, "u_v_140W_tavg.nc")
@@ -34,6 +34,7 @@ v_0_140 = np.zeros((time_size, 88))
 v_0_140.fill(np.nan)
 ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
+print('Check dimensions: ', len(ocean_time), len(his_files))
 for i in range(len(his_files)):
     his_file = his_files[i]
     print('Uploading variables: u, v  from:', i, ind_time, (ind_time+time_step), his_file)
