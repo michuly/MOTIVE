@@ -99,7 +99,7 @@ dat_dst.createVariable('w', np.dtype('float32').char, ('ocean_time','depths','lo
 dat_dst.variables['w'][:] = w
 dat_dst.createVariable('rho1', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['rho1'][:] = rho1
-dat_dst.createVariable('rho1', np.dtype('float32').char, ('ocean_time','depths','lon'))
+dat_dst.createVariable('temp', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['temp'][:] = temp
 dat_dst.createVariable('salt', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['salt'][:] = salt
