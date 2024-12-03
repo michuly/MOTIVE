@@ -8,6 +8,7 @@ from imports_file import *
 ### get history file names
 min_num, max_num = 141035, 141035
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="z_sampled_EPAC2km_his.*.nc")
+his_files_temp, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num, pattern_his_file="z_EPAC2km_his.*.nc")
 depths = tot_depths
 ### save an empty psd file ###
 dst_path_w = os.path.join(data_path_his, "w_prime.nc")
@@ -32,21 +33,26 @@ w = np.zeros((time_size, 88, len_xi_rho))
 w.fill(np.nan)
 rho1 = np.zeros((time_size, 88, len_xi_rho))
 rho1.fill(np.nan)
+salt = np.zeros((time_size, 88, len_xi_rho))
+salt.fill(np.nan)
+temp = np.zeros((time_size, 88, len_xi_rho))
+temp.fill(np.nan)
 ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
     his_file = his_files[i]
+    his_file_temp = his_files_temp[i]
     print('Uploading variables: w  from:', i, ind_time, (ind_time+time_step), his_file)
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
-    if to_slice:  # Shape: time, depth, y, x?e
-        w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, min_xi_rho:max_xi_rho+1]
-        rho1[ind_time:(ind_time + time_step), :, :] = dat_his.variables['rho'][::time_jump, :, 20, min_xi_rho:max_xi_rho+1]
-    else:
-        w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, :]
-        rho1[ind_time:(ind_time + time_step), :, :] = dat_his.variables['rho'][::time_jump, :, 20, :]
+    dat_his_temp = Dataset(his_file_temp, 'r')
+    w[ind_time:(ind_time + time_step), :, :] = dat_his.variables['w'][::time_jump, :, 20, :]
+    rho1[ind_time:(ind_time + time_step), :, :] = dat_his.variables['rho'][::time_jump, :, 20, :]
+    salt[ind_time:(ind_time + time_step), :, :] = dat_his.variables['salt'][::time_jump, :, 20, :]
+    temp[ind_time:(ind_time + time_step), :, :] = dat_his_temp.variables['temp'][::time_jump, :, 20, :]
     ocean_time[ind_time:(ind_time+time_step)] = dat_his.variables['ocean_time'][:]
     dat_his.close()
+    dat_his_temp.close()
     ind_time = ind_time + time_step
 
 print('Calculating averages...')
@@ -93,6 +99,10 @@ dat_dst.createVariable('w', np.dtype('float32').char, ('ocean_time','depths','lo
 dat_dst.variables['w'][:] = w
 dat_dst.createVariable('rho1', np.dtype('float32').char, ('ocean_time','depths','lon'))
 dat_dst.variables['rho1'][:] = rho1
+dat_dst.createVariable('rho1', np.dtype('float32').char, ('ocean_time','depths','lon'))
+dat_dst.variables['temp'][:] = temp
+dat_dst.createVariable('salt', np.dtype('float32').char, ('ocean_time','depths','lon'))
+dat_dst.variables['salt'][:] = salt
 dat_dst.close()
 print('DONE: saved w to data file ', dst_path_w)
 sys.stdout.flush()
