@@ -9,8 +9,8 @@ get two plots:
 his_files, tot_depths, time_dim = get_concatenate_parameters(min_num, max_num)
 depths = tot_depths
 ### save an empty psd file ###
-dst_path_tavg = os.path.join(data_path_his, "u_tavg_test_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
-dst_path_0_140 = os.path.join(data_path_his, "u_0_140_test_xi_%d_%d_eta_%d_%d.nc" % (min_xi_u, max_xi_u, min_eta_v, max_eta_v))
+dst_path_tavg = os.path.join(data_path_his, "u_v_140W_tavg.nc")
+dst_path_0_140 = os.path.join(data_path_his, "u_v_0N_140W.nc")
 print('Saving u into data file:', dst_path_tavg)
 print('Saving u into data file:', dst_path_0_140)
 
@@ -29,18 +29,22 @@ u_tavg = np.zeros((time_size, 88, len_eta_rho))
 u_tavg.fill(np.nan)
 u_0_140 = np.zeros((time_size, 88))
 u_0_140.fill(np.nan)
+v_tavg = np.zeros((time_size, 88, len_eta_rho))
+v_tavg.fill(np.nan)
+v_0_140 = np.zeros((time_size, 88))
+v_0_140.fill(np.nan)
 ocean_time = np.zeros(time_size)
 ocean_time.fill(np.nan)
 for i in range(len(his_files)):
     his_file = his_files[i]
-    print('Uploading variables: u  from:', i, ind_time, (ind_time+time_step), his_file)
+    print('Uploading variables: u, v  from:', i, ind_time, (ind_time+time_step), his_file)
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
-    if to_slice:  # Shape: time, depth, y, x?e
-        u_tavg[ind_time:(ind_time + time_step), :, :] = dat_his.variables['u'][:, :, min_eta_rho:max_eta_rho, lon_ind]
-    else:
-        u_tavg[ind_time:(ind_time + time_step), :, :] = dat_his.variables['u'][:, :, :, lon_ind]
+    u_tmp = dat_his.variables['u'][:, :, :, lon_ind]
+    u_tavg[ind_time:(ind_time + time_step), :, :]= 0.5 * (u_tmp[:, :, 1:] + u_tmp[:, :, -1:])
+    v_tavg[ind_time:(ind_time + time_step), :, :] = dat_his.variables['v'][:, :, :, lon_ind]
     u_0_140[ind_time:(ind_time + time_step), :] = dat_his.variables['u'][:, :, lat_ind, lon_ind]
+    v_0_140[ind_time:(ind_time + time_step), :] = dat_his.variables['v'][:, :, lat_ind, lon_ind]
     ocean_time[ind_time:(ind_time+time_step)] = dat_his.variables['ocean_time'][:]
     dat_his.close()
     ind_time = ind_time + time_step
@@ -58,6 +62,8 @@ dat_dst.createVariable('lat', np.dtype('float32').char, ('lat',))
 dat_dst.variables['lat'][:] = lat_array
 dat_dst.createVariable('u', np.dtype('float32').char, ('depths','lat'))
 dat_dst.variables['u'][:] = u_tavg.mean(axis=0)
+dat_dst.createVariable('v', np.dtype('float32').char, ('depths','lat'))
+dat_dst.variables['v'][:] = u_tavg.mean(axis=0)
 dat_dst.close()
 print('DONE: saved u to data file ', dst_path_tavg)
 
@@ -72,6 +78,8 @@ dat_dst.createVariable('ocean_time', np.dtype('float32').char, ('ocean_time',))
 dat_dst.variables['ocean_time'][:] = ocean_time
 dat_dst.createVariable('u', np.dtype('float32').char, ('ocean_time','depths'))
 dat_dst.variables['u'][:] = u_0_140
+dat_dst.createVariable('v', np.dtype('float32').char, ('ocean_time','depths'))
+dat_dst.variables['v'][:] = v_0_140
 dat_dst.close()
 print('DONE: saved u to data file ', dst_path_0_140)
 
