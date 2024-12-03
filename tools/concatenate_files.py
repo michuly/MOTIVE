@@ -15,7 +15,10 @@ def get_concatenate_parameters(min_num=0, max_num=0, pattern_his_file=pattern_hi
         nums=nums[nums >= min_num]
         print('Maximum and Minimum time of file found: ', np.min(nums), np.max(nums))
     if max_num != 0:
+        print('Check dimensions: ', len(nums), len(his_files))
         his_files = [his_files[i] for i in range(len(his_files)) if (nums[i] <= max_num)]
+        nums = nums[nums >= min_num]
+        print('Check dimensions: ', len(nums), len(his_files))
         print('Maximum and Minimum time of file found: ', np.min(nums), np.max(nums))
         # nums = nums[nums <= max_num]
     print('Maximum and Minimum time of file found: ', np.min(nums), np.max(nums))
