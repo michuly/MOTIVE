@@ -16,20 +16,18 @@ print('Saving u into data file:', dst_path_0_140)
 
 
 with Dataset(os.path.join(grd_path, grd_name)) as dat_grd:
-    if to_slice:
-        lat_array = dat_grd.variables['lat_rho'][min_eta_rho:max_eta_rho+1, lon_ind]
-    else:
-        lat_array = dat_grd.variables['lat_rho'][:, lon_ind]
+    lat_psi = dat_grd.variables['lat_psi'][:, lon_ind]
+    lat_rho = dat_grd.variables['lat_rho'][:, lon_ind]
 
 ### concatenate time to one series ###
 time_step = 12
 ind_time = 0
 time_size = time_step * len(his_files)
-u_tavg = np.zeros((time_size, 88, len_eta_rho))
+u_tavg = np.zeros((time_size, 88, len(lat_rho)))
 u_tavg.fill(np.nan)
 u_0_140 = np.zeros((time_size, 88))
 u_0_140.fill(np.nan)
-v_tavg = np.zeros((time_size, 88, len_eta_rho))
+v_tavg = np.zeros((time_size, 88, len(lat_psi)))
 v_tavg.fill(np.nan)
 v_0_140 = np.zeros((time_size, 88))
 v_0_140.fill(np.nan)
@@ -40,8 +38,7 @@ for i in range(len(his_files)):
     print('Uploading variables: u, v  from:', i, ind_time, (ind_time+time_step), his_file)
     sys.stdout.flush()
     dat_his = Dataset(his_file, 'r')
-    u_tmp = dat_his.variables['u'][:, :, :, lon_ind]
-    u_tavg[ind_time:(ind_time + time_step), :, :]= 0.5 * (u_tmp[:, :, 1:] + u_tmp[:, :, -1:])
+    u_tavg[ind_time:(ind_time + time_step), :, :]= dat_his.variables['u'][:, :, :, lon_ind]
     v_tavg[ind_time:(ind_time + time_step), :, :] = dat_his.variables['v'][:, :, :, lon_ind]
     u_0_140[ind_time:(ind_time + time_step), :] = dat_his.variables['u'][:, :, lat_ind, lon_ind]
     v_0_140[ind_time:(ind_time + time_step), :] = dat_his.variables['v'][:, :, lat_ind, lon_ind]
@@ -49,7 +46,7 @@ for i in range(len(his_files)):
     dat_his.close()
     ind_time = ind_time + time_step
 
-print('Check dimensions: ', lat_array.shape, len_eta_rho, u_tavg.shape, u_0_140.shape)
+print('Check dimensions: ', lat_rho.shape, lat_psi.shape, u_tavg.shape, u_0_140.shape)
 
 print('Saving time average zonal velocity...')
 # if not os.path.exists(dst_path):
@@ -57,12 +54,15 @@ dat_dst = Dataset(dst_path_tavg, 'w')
 dat_dst.createDimension('depths', len(tot_depths))
 dat_dst.createVariable('depths', np.dtype('float32').char, ('depths',))
 dat_dst.variables['depths'][:] = tot_depths
-dat_dst.createDimension('lat', len_eta_rho)
-dat_dst.createVariable('lat', np.dtype('float32').char, ('lat',))
-dat_dst.variables['lat'][:] = lat_array
-dat_dst.createVariable('u', np.dtype('float32').char, ('depths','lat'))
+dat_dst.createDimension('lat_rho', len(lat_rho))
+dat_dst.createVariable('lat_rho', np.dtype('float32').char, ('lat_rho',))
+dat_dst.variables['lat_rho'][:] = lat_rho
+dat_dst.createDimension('lat_psi', len(lat_psi))
+dat_dst.createVariable('lat_psi', np.dtype('float32').char, ('lat_psi',))
+dat_dst.variables['lat_psi'][:] = lat_rho
+dat_dst.createVariable('u', np.dtype('float32').char, ('depths','lat_rho'))
 dat_dst.variables['u'][:] = u_tavg.mean(axis=0)
-dat_dst.createVariable('v', np.dtype('float32').char, ('depths','lat'))
+dat_dst.createVariable('v', np.dtype('float32').char, ('depths','lat_psi'))
 dat_dst.variables['v'][:] = u_tavg.mean(axis=0)
 dat_dst.close()
 print('DONE: saved u to data file ', dst_path_tavg)
